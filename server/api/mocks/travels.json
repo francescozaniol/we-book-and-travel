@@ -4,9 +4,10 @@
     "title": "India",
     "description": "India, officially the Republic of India, is a country in South Asia",
     "rating": 4.5,
+    "price": 1000,
     "dates": {
-      "departure": "2024-01-31T09:00:00.594Z",
-      "return": "2024-02-31T09:00:00.594Z"
+      "departure": "2024-01-10",
+      "return": "2024-02-10"
     },
     "img": {
       "src": "https://lh5.googleusercontent.com/p/AF1QipN4sO59P-VTi9bc9Qgx8rrQ_1J4EnM44Bts5avz=w540-h312-n-k-no"
@@ -17,9 +18,10 @@
     "title": "China",
     "description": "China, officially the People's Republic of China, is a country in East Asia",
     "rating": 4,
+    "price": 1200,
     "dates": {
-      "departure": "2024-01-31T09:00:00.594Z",
-      "return": "2024-02-31T09:00:00.594Z"
+      "departure": "2024-01-10",
+      "return": "2024-02-10"
     },
     "img": {
       "src": "https://lh5.googleusercontent.com/p/AF1QipNa-VZ3dLGzVdsrk0_LpiQfGqRKJvX1IR_oc5Oo=w540-h312-n-k-no"
@@ -30,9 +32,10 @@
     "title": "Canada",
     "description": "Canada is a country in North America. Its ten provinces and three territories extend from the Atlantic Ocean to the Pacific Ocean and northward into the Arctic Ocean, making it the world's second-largest country by total area, with the world's longest coastline",
     "rating": 5,
+    "price": 2000,
     "dates": {
-      "departure": "2024-03-31T09:00:00.594Z",
-      "return": "2024-04-31T09:00:00.594Z"
+      "departure": "2024-03-10",
+      "return": "2024-04-10"
     },
     "img": {
       "src": "https://lh5.googleusercontent.com/p/AF1QipNb-QPr5kbm7Pc2ZZ1bPZakCbwF4wT4NbM6akHm=w540-h312-n-k-no"
@@ -43,9 +46,10 @@
     "title": "Australia",
     "description": "Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands",
     "rating": 5,
+    "price": 3000,
     "dates": {
-      "departure": "2024-05-31T09:00:00.594Z",
-      "return": "2024-06-31T09:00:00.594Z"
+      "departure": "2024-05-10",
+      "return": "2024-06-10"
     },
     "img": {
       "src": "https://lh3.googleusercontent.com/proxy/UQEWxjAmgNaGgW6rUFdTrjhB8Y9KRvJS-gwAE8dj7gzSWVApVEhP2JBUceZ7VzEysDOOpgroy0gQSQMZ48N4Ve9GYUnFCVTrnfHbZsB4JeFOFT7ZuRLLoAJ9a9V3GspUc1Prz7uNeHu6r3DpL5_LKzFXxDq1AA=w540-h312-n-k-no"
@@ -56,9 +60,10 @@
     "title": "Cuba",
     "description": "Cuba, officially the Republic of Cuba, is an island country, comprising the island of Cuba, Isla de la Juventud, archipelagos, 4,195 islands and cays surrounding the main island",
     "rating": 4.5,
+    "price": 1500,
     "dates": {
-      "departure": "2024-07-31T09:00:00.594Z",
-      "return": "2024-08-31T09:00:00.594Z"
+      "departure": "2024-07-10",
+      "return": "2024-08-10"
     },
     "img": {
       "src": "https://lh5.googleusercontent.com/proxy/vyP_L5gl3qjNTdA19YYQ6Xo4JHJGAivV9yMSb7UKWAtnKS4GWiDxseQtpB3IP81RjeNNb6JF3yHGTnScS4SVEE2D_W1VZ6PIe3zVP62ACGxKITDZ9u7LklEtiDhkxYGfak1GLuXKcwQzuJB567oru1Le3wsHfw=w540-h312-n-k-no"
@@ -69,9 +74,10 @@
     "title": "Jamaica",
     "description": "Jamaica, a Caribbean island nation, has a lush topography of mountains, rainforests and reef-lined beaches",
     "rating": 4,
+    "price": 1000,
     "dates": {
-      "departure": "2024-09-31T09:00:00.594Z",
-      "return": "2024-10-31T09:00:00.594Z"
+      "departure": "2024-09-10",
+      "return": "2024-10-10"
     },
     "img": {
       "src": "https://lh5.googleusercontent.com/p/AF1QipP7dS9l7VMI9khFFvLRtgfDW5yYj5o-zYecegJz=w540-h312-n-k-no"
@@ -82,9 +88,10 @@
     "title": "Japan",
     "description": "Japan is an island country in East Asia. It is in the northwest Pacific Ocean and is bordered on the west by the Sea of Japan, extending from the Sea of Okhotsk in the north toward the East China Sea, Philippine Sea, and Taiwan in the south.",
     "rating": 5,
+    "price": 2000,
     "dates": {
-      "departure": "2024-11-31T09:00:00.594Z",
-      "return": "2024-12-31T09:00:00.594Z"
+      "departure": "2024-11-10",
+      "return": "2024-12-10"
     },
     "img": {
       "src": "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSdA1EXpL-M3xJskkKEHwubLUxcv3U2Zj4S0px0pLyVYYXUNFGv9wV5Q-tdP2CNqz0O7uhaahgGbrw_h3bDC11dN6iCRNcxY2MYCeT6CQ"
@@ -95,9 +102,10 @@
     "title": "Taiwan",
     "description": "Taiwan, officially the Republic of China, is a country in East Asia. It is located at the junction of the East and South China Seas in the northwestern Pacific Ocean, with the People's Republic of China to the northwest, Japan to the northeast, and the Philippines to the south.",
     "rating": 4.5,
+    "price": 3000,
     "dates": {
-      "departure": "2025-01-31T09:00:00.594Z",
-      "return": "2025-02-31T09:00:00.594Z"
+      "departure": "2025-01-10",
+      "return": "2025-02-10"
     },
     "img": {
       "src": "https://lh5.googleusercontent.com/p/AF1QipNOG2Px95NB1xE0DzuEWQ_Qnj0U-IgWahUACYAI=w540-h312-n-k-no"

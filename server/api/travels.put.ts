@@ -6,10 +6,7 @@ export default defineEventHandler(async (event) => {
   return {
     data: {
       ...body,
-      id: 999,
-      img: {
-        "src": "https://via.placeholder.com/350x150",
-      },
+      id: Math.floor(Math.random() * 10000),
     } as typeof travels[number],
   };
 })

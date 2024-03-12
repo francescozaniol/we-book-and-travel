@@ -4,14 +4,19 @@ export type Travel = {
   id: number,
   title: string,
   description: string,
+  rating: number,
+  price: number,
+  dates: {
+    departure: string,
+    return: string,
+  },
   img: {
     src: string,
   },
 };
 
-export type NewTravel = Omit<Travel, 'id' | 'img'> & {
+export type NewTravel = Omit<Travel, 'id'> & {
   id: null,
-  img: null,
 };
 
 export const useTravelsStore = defineStore('travels', {
