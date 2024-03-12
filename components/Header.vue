@@ -4,7 +4,7 @@
       <nav class="container mx-auto flex items-center justify-between p-4 z-50">
         <div class="z-50">
           <nuxt-link to="/" class="text-xl font-bold border-none z-50 ">
-            WeBookAndTravel
+            WeBook&Travel
           </nuxt-link>
         </div>
         <div class="hidden lg:flex items-center space-x-8">

@@ -1,9 +1,9 @@
-/* @tailwind base; */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /*! purgecss start ignore */
-/* @layer base { */
+@layer base {
 
     h1 {
         @apply text-2xl font-bold md:text-4xl pb-4 pt-2;
@@ -44,7 +44,7 @@
     input {
         @apply border-slate-600 border;
     }
-/* } */
+}
 
 @layer components {
 
