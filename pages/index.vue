@@ -67,6 +67,8 @@
 <script lang="ts" setup>
 const { $store } = useNuxtApp();
 
+const travels = computed(() => $store.travels.travels);
+
 function fetchTravels () {
   useAsyncData(() => Promise.all([
     $store.travels.fetchTravels(),
@@ -76,7 +78,6 @@ function fetchTravels () {
   });
 }
 fetchTravels();
-const travels = computed(() => $store.travels.travels);
 
 let editedTravel = <Ref<null | Travel | NewTravel>>ref(null);
 
