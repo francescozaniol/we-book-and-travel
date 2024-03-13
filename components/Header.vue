@@ -4,7 +4,7 @@
       <nav class="container mx-auto flex items-center justify-between p-4 z-50">
         <div class="z-50">
           <nuxt-link to="/" class="text-xl font-bold border-none z-50 [&>*]:inline-block">
-            <span class="text-red-600">We</span><span class="text-slate-900">Book</span><span class="text-md text-slate-500">&</span><span class="text-slate-900">Travel</span>
+            <span class="text-red-600 font-medium">We</span><span class="text-slate-900 font-">Book</span><span class="text-md text-slate-400 font-normal">&</span><span class="text-slate-900">Travel</span>
           </nuxt-link>
         </div>
         <div class="lg:flex items-center space-x-8">
