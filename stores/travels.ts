@@ -23,7 +23,6 @@ export const useTravelsStore = defineStore('travels', {
 
   state: () => ({
     travels: <null | Travel[]>null,
-    travel: <null | Travel>null,
   }),
 
   actions: {
@@ -31,13 +30,6 @@ export const useTravelsStore = defineStore('travels', {
     fetchTravels() {
       return TravelService.index().then(res => {
         this.travels = res.data;
-        return res;
-      });
-    },
-
-    fetchTravel(id: number) {
-      return TravelService.show(id).then(res => {
-        this.travel = res.data;
         return res;
       });
     },
