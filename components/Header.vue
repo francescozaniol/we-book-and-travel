@@ -7,6 +7,10 @@
             <span class="text-red-600">We</span><span class="text-slate-900">Book</span><span class="text-md text-slate-500">&</span><span class="text-slate-900">Travel</span>
           </nuxt-link>
         </div>
+        <div class="lg:flex items-center space-x-8">
+          <nuxt-link to="/bookings" class="border-none">Bookings</nuxt-link>
+          <nuxt-link to="/" class="border-none">Travels</nuxt-link>
+        </div>
       </nav>
     </div>
   </header>

@@ -3,6 +3,7 @@ export default defineNuxtPlugin(nuxtApp => {
     name: 'store',
     provide: {
       store: {
+        bookings: useBookingsStore(),
         travels: useTravelsStore(),
       }
     }
