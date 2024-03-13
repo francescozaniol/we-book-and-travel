@@ -47,7 +47,7 @@ export const useTravelsStore = defineStore('travels', {
 
     storeTravel(data: NewTravel) {
       return TravelService.store(data).then(res => {
-        this.travels?.push(res.data);
+        this.travels?.unshift(res.data);
         return res;
       });
     },
