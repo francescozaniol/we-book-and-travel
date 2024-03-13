@@ -1,11 +1,11 @@
 <template>
   <div class="px-5 pb-20 container mx-auto">
 
-    <div class="flex align-middle py-6">
-      <div>
-        <button v-if="!editedTravel" @click="addTravel">Add new Travel</button>
+    <div class="flex align-middle py-6 max-sm:block">
+      <div class="max-sm:py-2">
+        <button class="max-sm:w-full" v-if="!editedTravel" @click="addTravel">Add new Travel</button>
       </div>
-      <form class="flex ml-auto justify-end" @submit.prevent="filterTravels">
+      <form class="flex ml-auto justify-end space-x-2" @submit.prevent="filterTravels">
         <input id="filter.search" class="w-full" type="search" name="description" v-model="filters.q" placeholder="Search" @input="resetTravelsFilters" />
         <button type="submit">Search</button>
       </form>
@@ -20,7 +20,7 @@
         />
       </li>
     </ul>
-    <div v-else-if="!travels?.length">No search results</div>
+    <div v-else-if="travels && !travels.length">No search results</div>
     <div v-else>Hold on, I'm fetching...</div>
 
     <div v-if="editedTravel">
