@@ -8,12 +8,15 @@
     </div>
     <h1 class="pt-4 px-6">{{ travel.title }}</h1>
     <p class="px-6 line-clamp-3 flex-initial">{{ travel.description }}</p>
-    <div class="text-sm text-slate-900 p-1 text-right mt-auto">
-      <div><span class="text-xs">Departure: </span>{{ travel.dates.departure }}</div>
-      <div><span class="text-xs">Return: </span>{{ travel.dates.return }}</div>
+    <div class="text-md text-slate-900 pt-2 px-6 mt-auto">
+      <div class="flex flex-row space-x-4 mb-2">
+        <div><div class="text-xs">Departure: </div>{{ travel.dates.departure }}</div>
+        <div><div class="text-xs">Return: </div>{{ travel.dates.return }}</div>
+      </div>
+      <div class="mb-2"><div class="text-xs">Price/Person: </div>{{ travel.price }}$</div>
     </div>
-    <div>💵 {{ travel.price }}$</div>
-    <div class="flex p-2 align-bottom justify-end space-x-2 absolute top-2 left-2 z-10">
+    <hr />
+    <div class="flex p-2 align-bottom justify-end space-x-2">
       <button @click="$emit('edit')">Edit</button>
       <button @click="$emit('delete')">Delete</button>
     </div>
