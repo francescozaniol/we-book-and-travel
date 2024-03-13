@@ -18,8 +18,8 @@
 
     <ul v-if="travels" class="list-none m-0 p-0 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
       <li class="m-0 p-0 xl:aspect-[8/12] lg:aspect-[8/13] md:aspect-[8/11] sm:aspect-[8/13] xs:grid-cols-1" v-for="travel in travels" :key="travel.id">
-        <Card
-          :item="travel"
+        <TravelCard
+          :travel="travel"
           @edit="editTravel(travel)"
           @delete="removeTravel(travel)"
         />
