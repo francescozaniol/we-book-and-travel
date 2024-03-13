@@ -39,7 +39,6 @@ export const useTravelsStore = defineStore('travels', {
     },
 
     filterTravels(filters: TravelsFilters) {
-      console.log(1, filters);
       return TravelService.index({ q: filters.q }).then(res => {
         this.travels = res.data;
         return res;
