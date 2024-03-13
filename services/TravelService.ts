@@ -1,7 +1,11 @@
 export default class {
 
-  static index() {
-    return $fetch('/api/travels');
+  static index({ q = '' } = {}) {
+    return $fetch('/api/travels', {
+      params: {
+        q,
+      },
+    });
   }
 
   static show(id: number) {

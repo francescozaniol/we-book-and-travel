@@ -15,6 +15,10 @@ export type Travel = {
   },
 };
 
+export type TravelsFilters = {
+  q: string,
+};
+
 export type NewTravel = Omit<Travel, 'id'> & {
   id: null,
 };
@@ -29,6 +33,14 @@ export const useTravelsStore = defineStore('travels', {
 
     fetchTravels() {
       return TravelService.index().then(res => {
+        this.travels = res.data;
+        return res;
+      });
+    },
+
+    filterTravels(filters: TravelsFilters) {
+      console.log(1, filters);
+      return TravelService.index({ q: filters.q }).then(res => {
         this.travels = res.data;
         return res;
       });

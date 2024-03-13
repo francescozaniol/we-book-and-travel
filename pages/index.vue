@@ -1,22 +1,17 @@
 <template>
   <div class="px-5 pb-20 container mx-auto">
 
-    <div class="flex align-middle justify-end py-6">
-      <form class="flex align-middle justify-end" @submit.prevent="filterTravels">
-        <input id="filter.search" class="w-full" type="search" name="description" v-model="filter.search" />
-        <span>|</span>
-        <span>Your budget:</span>
-        <input id="filter.price.from" class="w-full" type="number" name="filter.price.from" v-model="filter.price.from"  />
-        <span>to</span>
-        <input id="filter.price.to" class="w-full" type="number" name="filter.price.to" v-model="filter.price.to" />
-        <button type="submit" :disabled="isSearching">Search</button>
-      </form>
+    <div class="flex align-middle py-6">
       <div>
         <button v-if="!editedTravel" @click="addTravel">Add new Travel</button>
       </div>
+      <form class="flex ml-auto justify-end" @submit.prevent="filterTravels">
+        <input id="filter.search" class="w-full" type="search" name="description" v-model="filters.q" placeholder="Search" @input="resetTravelsFilters" />
+        <button type="submit">Search</button>
+      </form>
     </div>
 
-    <ul v-if="travels" class="list-none m-0 p-0 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
+    <ul v-if="travels && travels.length" class="list-none m-0 p-0 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
       <li class="m-0 p-0 xl:aspect-[8/12] lg:aspect-[8/13] md:aspect-[8/11] sm:aspect-[8/13] xs:grid-cols-1" v-for="travel in travels" :key="travel.id">
         <TravelCard
           :travel="travel"
@@ -25,7 +20,7 @@
         />
       </li>
     </ul>
-
+    <div v-else-if="!travels?.length">No search results</div>
     <div v-else>Hold on, I'm fetching...</div>
 
     <div v-if="editedTravel">
@@ -72,12 +67,15 @@
 <script lang="ts" setup>
 const { $store } = useNuxtApp();
 
-useAsyncData(() => Promise.all([
-  $store.travels.fetchTravels(),
-]), {
-  lazy: true,
-  server: false,
-});
+function fetchTravels () {
+  useAsyncData(() => Promise.all([
+    $store.travels.fetchTravels(),
+  ]), {
+    lazy: true,
+    server: false,
+  });
+}
+fetchTravels();
 const travels = computed(() => $store.travels.travels);
 
 let editedTravel = <Ref<null | Travel | NewTravel>>ref(null);
@@ -119,14 +117,13 @@ function removeTravel (travel: Travel) {
   }
 }
 
-const filter = {
-  search: '',
-  price: {
-    from: null,
-    to: null,
-  },
-};
-function filterTravels (travel: Travel) {
-  useAsyncData(() => $store.travels.deleteTravel(travel));
+const filters = <Ref<TravelsFilters>>ref({
+  q: '',
+});
+function filterTravels () {
+  useAsyncData(() => $store.travels.filterTravels(unref(filters)));
+}
+function resetTravelsFilters () {
+  if ( !filters.value.q ) fetchTravels();
 }
 </script>
