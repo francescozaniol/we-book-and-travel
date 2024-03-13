@@ -1,25 +1,26 @@
 <template>
-  <div class="px-5 pb-20 container mx-auto">
+  <div class="px-5 pb-20 container max-sm:max-w-[400px] mx-auto">
 
-    <div class="flex align-middle py-6 max-sm:block">
-      <div class="max-sm:py-2">
-        <button class="max-sm:w-full" v-if="!editedTravel" @click="addTravel">Add new Travel</button>
+    <div class="flex items-center align-middle py-6 max-sm:block">
+      <div>
+        <UButton color="red" icon="i-heroicons-plus-circle" size="xl" class="max-sm:w-full" v-if="!editedTravel" @click="addTravel">Add new Travel</UButton>
       </div>
+      <hr class="md:hidden my-6" />
       <form class="flex ml-auto justify-end space-x-2" @submit.prevent="filterTravels">
-        <input id="filter.search" class="w-full" type="search" name="description" v-model="filters.q" placeholder="Search" @input="resetTravelsFilters" />
-        <button type="submit">Search</button>
+        <UInput id="filter.search" class="w-full" type="search" name="description" v-model="filters.q" placeholder="Search" @input="resetTravelsFilters" />
+        <UButton color="black" variant="solid" type="submit">Search</UButton>
       </form>
     </div>
 
-    <ul v-if="travels && travels.length" class="list-none m-0 p-0 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
-      <li class="m-0 p-0 xl:aspect-[8/12] lg:aspect-[8/13] md:aspect-[8/11] sm:aspect-[8/13] xs:grid-cols-1" v-for="travel in travels" :key="travel.id">
+    <div v-if="travels && travels.length" class="list-none m-0 p-0 grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
+      <div class="m-0 p-0 xl:aspect-[8/12] lg:aspect-[8/13] md:aspect-[8/11] sm:aspect-[8/13] xs:grid-cols-1" v-for="travel in travels" :key="travel.id">
         <TravelCard
           :travel="travel"
           @edit="editTravel(travel)"
           @delete="removeTravel(travel)"
         />
-      </li>
-    </ul>
+      </div>
+    </div>
     <div v-else-if="travels && !travels.length">No search results</div>
     <div v-else>Hold on, I'm fetching...</div>
 
@@ -28,10 +29,10 @@
       <form @submit.prevent="saveEditedTravel">
 
         <label for="title">Title</label>
-        <input id="title" class="w-full" type="text" name="title" v-model="editedTravel.title" />
+        <UInput id="title" class="w-full" type="text" name="title" v-model="editedTravel.title" />
 
         <label for="description">Description</label>
-        <input id="description" class="w-full" type="text" name="description" v-model="editedTravel.description" />
+        <UInput id="description" class="w-full" type="text" name="description" v-model="editedTravel.description" />
 
         <label for="ratings">Ratings</label>
         <select id="ratings" class="w-full" name="ratings" v-model="editedTravel.rating">
@@ -48,16 +49,16 @@
         </select>
 
         <label for="dates.departure">Departure date</label>
-        <input type="date" id="dates.departure" class="w-full" name="dates.departure" v-model="editedTravel.dates.departure" />
+        <UInput type="date" id="dates.departure" class="w-full" name="dates.departure" v-model="editedTravel.dates.departure" />
 
         <label for="dates.return">Return date</label>
-        <input type="date" id="dates.return" class="w-full" name="dates.return" v-model="editedTravel.dates.return" />
+        <UInput type="date" id="dates.return" class="w-full" name="dates.return" v-model="editedTravel.dates.return" />
 
         <label for="img.src">Image URL</label>
-        <input type="text" id="img.src" class="w-full" name="img.src" v-model="editedTravel.img.src" />
+        <UInput type="text" id="img.src" class="w-full" name="img.src" v-model="editedTravel.img.src" />
 
-        <button type="submit">Save</button>
-        <button @click="editedTravel = null">Cancel</button>
+        <UButton type="submit">Save</UButton>
+        <UButton @click="editedTravel = null">Cancel</UButton>
       </form>
     </div>
 

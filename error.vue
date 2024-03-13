@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ error.statusCode }}</h2>
-    <button @click="handleError">Clear errors</button>
+    <UButton @click="handleError">Clear errors</UButton>
   </div>
 </template>
 
