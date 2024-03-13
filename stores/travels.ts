@@ -42,7 +42,7 @@ export const useTravelsStore = defineStore('travels', {
       });
     },
 
-    addNewTravel(data: NewTravel) {
+    storeTravel(data: NewTravel) {
       return TravelService.store(data).then(res => {
         this.travels?.push(res.data);
         return res;
@@ -50,14 +50,14 @@ export const useTravelsStore = defineStore('travels', {
     },
 
     updateTravel(travel: Travel) {
-      return TravelService.update(travel).then(res => {
+      return TravelService.update(travel.id, travel).then(res => {
         const index = this.travels!.findIndex(t => t.id === res.data.id);
         this.travels![index] = res.data;
         return res;
       });
     },
 
-    removeTravel(travel: Travel) {
+    deleteTravel(travel: Travel) {
       return TravelService.delete(travel.id).then(res => {
         this.travels = this.travels!.filter(t => t.id !== travel.id);
         return res;

@@ -15,17 +15,16 @@ export default class {
     });
   }
 
-  static update(data: Travel) {
-    return $fetch('/api/travels', {
+  static update(id: number, data: Travel) {
+    return $fetch(`/api/travels/${id}`, {
       method: 'POST',
       body: data,
     });
   }
 
   static delete(id: number) {
-    return $fetch('/api/travels', {
+    return $fetch(`/api/travels/${id}`, {
       method: 'DELETE',
-      body: id,
     });
   }
 

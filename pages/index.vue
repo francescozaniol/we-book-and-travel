@@ -89,7 +89,7 @@ function editTravel (travel: Travel) {
 async function saveEditedTravel () {
   if ( !editedTravel.value ) return;
   if ( editedTravel.value.id === null ){
-    await useAsyncData(() => $store.travels.addNewTravel(editedTravel.value as NewTravel));
+    await useAsyncData(() => $store.travels.storeTravel(editedTravel.value as NewTravel));
   } else {
     await useAsyncData(() => $store.travels.updateTravel(editedTravel.value as Travel));
   }
@@ -115,7 +115,7 @@ function addTravel () {
 
 function removeTravel (travel: Travel) {
   if (confirm(`Mate, u sure u wanna delete ${travel.title}?`)) {
-    useAsyncData(() => $store.travels.removeTravel(travel));
+    useAsyncData(() => $store.travels.deleteTravel(travel));
   }
 }
 
@@ -127,6 +127,6 @@ const filter = {
   },
 };
 function filterTravels (travel: Travel) {
-  useAsyncData(() => $store.travels.removeTravel(travel));
+  useAsyncData(() => $store.travels.deleteTravel(travel));
 }
 </script>

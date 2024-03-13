@@ -33,6 +33,9 @@
       </div>
     </div>
   </article>
+  <div class="container mx-auto pt-6">
+    Se sei qui vuol dire che probabilmente hai provato ad accedere ad un tour appena creato; non lo vedi perche' il DB non e' stato implementato..
+  </div>
 </template>
 
 <script lang="ts" setup>
