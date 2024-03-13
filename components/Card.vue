@@ -1,5 +1,5 @@
 <template>
-  <article class="flex flex-col relative shadow-xl rounded-lg group h-full">
+  <article class="flex flex-col relative shadow-xl rounded-lg group h-full hover:shadow-2xl transition-[shadow, transform] duration-200 hover:-translate-y-1">
     <div class="aspect-video overflow-hidden rounded-t-lg relative flex-none">
       <span class="absolute top-2 right-2 z-10 p-1 px-3 bg-white rounded-xl">💵 {{ item.price }}$</span>
       <img class="w-full h-full object-cover group-hover:scale-110 transition-scale duration-500" :src="item.img.src" alt="" />
@@ -7,10 +7,8 @@
         <span class="text-sm">User rating: </span class="text-md font-bold">{{ item.rating }} ⭐
       </div>
     </div>
-    <div class="p-2">
-      <h1>{{ item.title }}</h1>
-      <p class="line-clamp-4">{{ item.description }}</p>
-    </div>
+    <h1 class="px-4">{{ item.title }}</h1>
+    <p class="px-4 line-clamp-4 flex-initial">{{ item.description }}</p>
     <div class="text-sm text-slate-900 p-1 text-right mt-auto">
         <span class="text-xs">Departure: </span>{{ item.dates.departure }} | <span class="text-xs">Return: </span>{{ item.dates.return }}
       </div>
