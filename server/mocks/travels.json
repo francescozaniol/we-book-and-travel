@@ -2,7 +2,7 @@
   {
     "id": 0,
     "title": "India",
-    "description": "India, officially the Republic of India, is a country in South Asia",
+    "description": "India, officially the Republic of India, is a country in South Asia. It is the seventh-largest country by area; the most populous country as of June 2023.",
     "rating": 4.5,
     "price": 1000,
     "dates": {
@@ -16,7 +16,7 @@
   {
     "id": 1,
     "title": "China",
-    "description": "China, officially the People's Republic of China, is a country in East Asia",
+    "description": "China, officially the People's Republic of China, is a country in East Asia. With a population exceeding 1.4 billion, it is the world's second-most-populous country. China spans the equivalent of five time zones and borders fourteen countries by land.",
     "rating": 4,
     "price": 1200,
     "dates": {
@@ -44,7 +44,7 @@
   {
     "id": 3,
     "title": "Australia",
-    "description": "Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands",
+    "description": "Australia, officially the Commonwealth of Australia, is a sovereign country comprising the mainland of the Australian continent, the island of Tasmania, and numerous smaller islands.",
     "rating": 5,
     "price": 3000,
     "dates": {
@@ -58,7 +58,7 @@
   {
     "id": 4,
     "title": "Cuba",
-    "description": "Cuba, officially the Republic of Cuba, is an island country, comprising the island of Cuba, Isla de la Juventud, archipelagos, 4,195 islands and cays surrounding the main island",
+    "description": "Cuba, officially the Republic of Cuba, is an island country, comprising the island of Cuba, Isla de la Juventud, archipelagos, 4,195 islands and cays surrounding the main island. Cuba is located where the northern Caribbean Sea, Gulf of Mexico, and Atlantic Ocean meet.",
     "rating": 4.5,
     "price": 1500,
     "dates": {
@@ -72,7 +72,7 @@
   {
     "id": 5,
     "title": "Jamaica",
-    "description": "Jamaica, a Caribbean island nation, has a lush topography of mountains, rainforests and reef-lined beaches",
+    "description": "Jamaica, a Caribbean island nation, has a lush topography of mountains, rainforests and reef-lined beaches. Many of its all-inclusive resorts are clustered in Montego Bay, with its British-colonial architecture, and Negril, known for its diving and snorkeling sites.",
     "rating": 4,
     "price": 1000,
     "dates": {

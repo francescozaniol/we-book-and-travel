@@ -23,26 +23,34 @@ export const useTravelsStore = defineStore('travels', {
 
   state: () => ({
     travels: <null | Travel[]>null,
+    travel: <null | Travel>null,
   }),
 
   actions: {
 
     fetchTravels() {
-      return TravelService.get().then(res => {
+      return TravelService.index().then(res => {
         this.travels = res.data;
         return res;
       });
     },
 
+    fetchTravel(id: number) {
+      return TravelService.show(id).then(res => {
+        this.travel = res.data;
+        return res;
+      });
+    },
+
     addNewTravel(data: NewTravel) {
-      return TravelService.new(data).then(res => {
+      return TravelService.store(data).then(res => {
         this.travels?.push(res.data);
         return res;
       });
     },
 
-    updateTravel(data: Travel) {
-      return TravelService.update(data).then(res => {
+    updateTravel(travel: Travel) {
+      return TravelService.update(travel).then(res => {
         const index = this.travels!.findIndex(t => t.id === res.data.id);
         this.travels![index] = res.data;
         return res;

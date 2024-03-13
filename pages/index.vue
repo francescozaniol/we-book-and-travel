@@ -1,5 +1,5 @@
 <template>
-  <div class="px-5 pb-20 container">
+  <div class="px-5 pb-20 container mx-auto">
 
     <div class="flex align-middle justify-end py-6">
       <form class="flex align-middle justify-end" @submit.prevent="filterTravels">
@@ -16,20 +16,13 @@
       </div>
     </div>
 
-    <ul v-if="$store.travels.travels" class="list-none m-0 p-0 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
-      <li class="m-0 p-0 xl:aspect-[8/12] lg:aspect-[8/13] md:aspect-[8/11] sm:aspect-[8/13] xs:grid-cols-1" v-for="travel in $store.travels.travels" :key="travel.id">
-        <Card :item="travel">
-          <template #actions>
-            <div class="flex p-2 align-bottom justify-end space-x-2">
-              <button @click="editTravel(travel)">
-                Edit
-              </button>
-              <button @click="removeTravel(travel)">
-                Delete
-              </button>
-            </div>
-          </template>
-        </Card>
+    <ul v-if="travels" class="list-none m-0 p-0 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
+      <li class="m-0 p-0 xl:aspect-[8/12] lg:aspect-[8/13] md:aspect-[8/11] sm:aspect-[8/13] xs:grid-cols-1" v-for="travel in travels" :key="travel.id">
+        <Card
+          :item="travel"
+          @edit="editTravel(travel)"
+          @delete="removeTravel(travel)"
+        />
       </li>
     </ul>
 
@@ -77,7 +70,7 @@
 </template>
 
 <script lang="ts" setup>
-const { $store } = useNuxtApp()
+const { $store } = useNuxtApp();
 
 useAsyncData(() => Promise.all([
   $store.travels.fetchTravels(),
@@ -85,6 +78,7 @@ useAsyncData(() => Promise.all([
   lazy: true,
   server: false,
 });
+const travels = computed(() => $store.travels.travels);
 
 let editedTravel = <Ref<null | Travel | NewTravel>>ref(null);
 

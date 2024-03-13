@@ -1,10 +1,14 @@
 export default class {
 
-  static get() {
+  static index() {
     return $fetch('/api/travels');
   }
 
-  static new(data: NewTravel) {
+  static show(id: number) {
+    return $fetch(`/api/travels/${id}`);
+  }
+
+  static store(data: NewTravel) {
     return $fetch('/api/travels', {
       method: 'PUT',
       body: data,

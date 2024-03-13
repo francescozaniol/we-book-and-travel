@@ -1,19 +1,29 @@
 <template>
   <article class="flex flex-col relative shadow-xl rounded-lg group h-full hover:shadow-2xl transition-[shadow, transform] duration-200 hover:-translate-y-1">
     <div class="aspect-video overflow-hidden rounded-t-lg relative flex-none">
-      <span class="absolute top-2 right-2 z-10 p-1 px-3 bg-white rounded-xl">💵 {{ item.price }}$</span>
-      <img class="w-full h-full object-cover group-hover:scale-110 transition-scale duration-500" :src="item.img.src" alt="" />
-      <div class="absolute w-full bottom-0 text-slate-900 p-1 text-right opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition[opacity, transform] translate-y-1 duration-500 bg-white/80">
+      <span class="absolute bottom-2 right-2 z-10 p-1 px-3 bg-white rounded-xl">
         <span class="text-sm">User rating: </span class="text-md font-bold">{{ item.rating }} ⭐
-      </div>
+      </span>
+      <img class="w-full h-full object-cover group-hover:scale-110 transition-scale duration-500" :src="item.img.src" alt="" />
     </div>
-    <h1 class="px-4">{{ item.title }}</h1>
-    <p class="px-4 line-clamp-4 flex-initial">{{ item.description }}</p>
+    <h1 class="pt-4 px-6">{{ item.title }}</h1>
+    <p class="px-6 line-clamp-3 flex-initial">{{ item.description }}</p>
     <div class="text-sm text-slate-900 p-1 text-right mt-auto">
-        <span class="text-xs">Departure: </span>{{ item.dates.departure }} | <span class="text-xs">Return: </span>{{ item.dates.return }}
-      </div>
-    <div class="relative mt-0">
-      <slot name="actions" />
+      <div><span class="text-xs">Departure: </span>{{ item.dates.departure }}</div>
+      <div><span class="text-xs">Return: </span>{{ item.dates.return }}</div>
+    </div>
+    <div>💵 {{ item.price }}$</div>
+    <div class="p-3">
+      <nuxt-link
+        :to="`/travels/${item.id}`"
+        class="block w-full py-4 text-center"
+      >
+        Book now!
+      </nuxt-link>
+    </div>
+    <div class="flex p-2 align-bottom justify-end space-x-2 absolute top-2 left-2 z-10">
+      <button @click="$emit('edit')">Edit</button>
+      <button @click="$emit('delete')">Delete</button>
     </div>
   </article>
 </template>

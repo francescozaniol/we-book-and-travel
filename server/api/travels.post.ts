@@ -1,4 +1,4 @@
-import travels from './mocks/travels.json';
+import travels from '@/server/mocks/travels.json';
 
 export default defineEventHandler(async (event) => {
   await new Promise(r => setTimeout(r, 400)); // simulate DB saving
