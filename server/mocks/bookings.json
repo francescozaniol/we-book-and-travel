@@ -1,0 +1,67 @@
+[
+  {
+    "id": 0,
+    "travelId": 0,
+    "customer": {
+      "name": "Gil Moss",
+      "email": "gilmoss@example.com",
+      "phone": "+39123456789",
+      "age": 26,
+      "gender": 0
+    },
+    "payment": 0,
+    "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    "id": 1,
+    "travelId": 2,
+    "customer": {
+      "name": "Kenton Pugh",
+      "email": "kentonpugh@example.com",
+      "phone": "+39123456789",
+      "age": 50,
+      "gender": 0
+    },
+    "payment": 1,
+    "notes": "Duis aute irure dolor in reprehenderit in voluptate velit esse."
+  },
+  {
+    "id": 2,
+    "travelId": 1,
+    "customer": {
+      "name": "Judith Barrera",
+      "email": "judithbarrera@example.com",
+      "phone": "+39123456789",
+      "age": 44,
+      "gender": 1
+    },
+    "payment": 1,
+    "notes": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+  },
+  {
+    "id": 3,
+    "travelId": 5,
+    "customer": {
+      "name": "Clayton Foley",
+      "email": "claytonfoley@example.com",
+      "phone": "+39123456789",
+      "age": 63,
+      "gender": 2
+    },
+    "payment": 0,
+    "notes": "Ut enim ad minim veniam."
+  },
+  {
+    "id": 4,
+    "travelId": 6,
+    "customer": {
+      "name": "Helena Zamora",
+      "email": "helenazamora@example.com",
+      "phone": "+39123456789",
+      "age": 19,
+      "gender": 1
+    },
+    "payment": 2,
+    "notes": "Nostrud exercitation ullamco laboris."
+  }
+]
