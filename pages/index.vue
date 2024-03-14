@@ -18,7 +18,7 @@
         <TravelCard
           :travel="travel"
           @edit="editTravel(travel)"
-          @delete="removeTravel(travel)"
+          @delete="confirmTravelDelete(travel)"
         />
       </div>
       <div v-else class="" v-for="skeleton in [0,1,2,3]" :key="skeleton">
@@ -28,13 +28,25 @@
       </div>
     </div>
 
-    <UModal v-model="modal.isOpen">
+    <UModal v-model="formModal.isOpen">
       <TravelForm
-        :travel="modal.travel"
-        :pending="modal.pending"
+        :travel="formModal.travel"
+        :pending="formModal.pending"
         @submit="saveTravel"
-        @cancel="modal.isOpen = false"
+        @cancel="formModal.isOpen = false"
       />
+    </UModal>
+
+    <UModal v-if="deleteModal.travel" v-model="deleteModal.isOpen">
+      <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
+        <p>U sure u wanna delete <strong>{{ deleteModal.travel.title }}</strong>?</p>
+        <template #footer>
+          <div class="flex justify-end space-x-2">
+            <UButton color="red" size="md" class="px-5 disabled:opacity-40" icon="i-heroicons-trash" @click="deleteTravel" :loading="deleteModal.pending">Yes, delete it</UButton>
+            <UButton color="black" size="md" class="px-5" icon="i-heroicons-x-circle" @click="deleteModal.isOpen = false">No, keep it</UButton>
+          </div>
+        </template>
+      </UCard>
     </UModal>
   </div>
 </template>
@@ -53,10 +65,21 @@ useAsyncData(() => Promise.all([
   server: false,
 });
 
-function removeTravel (travel: Travel) {
-  if (confirm(`Mate, u sure u wanna delete ${travel.title}?`)) {
-    useAsyncData(() => $store.travels.deleteTravel(travel));
-  }
+const deleteModal = reactive({
+  isOpen: false,
+  pending: false,
+  travel: <Travel | null>null,
+});
+function confirmTravelDelete (travel: Travel) {
+  deleteModal.isOpen = true;
+  deleteModal.travel = travel;
+}
+async function deleteTravel () {
+  deleteModal.pending = true;
+  await $store.travels.deleteTravel(deleteModal.travel as Travel);
+  deleteModal.pending = false;
+  deleteModal.isOpen = false;
+  deleteModal.travel = null;
 }
 
 const filters = <TravelsFilters>reactive({
@@ -69,25 +92,25 @@ watchEffect(() => {
   if ( filters.q === '' ) $store.travels.fetchTravels();
 });
 
-const modal = reactive({
+const formModal = reactive({
   isOpen: false,
   pending: false,
   travel: <Travel | undefined>undefined,
 });
 function editTravel (travel: Travel | undefined) {
-  modal.isOpen = true;
-  modal.travel = travel;
+  formModal.isOpen = true;
+  formModal.travel = travel;
 }
 
 async function saveTravel (travel: Travel | NewTravel) {
-  modal.pending = true;
+  formModal.pending = true;
   if ( travel.id === null ){
     await $store.travels.storeTravel(travel);
   } else{
     await $store.travels.updateTravel(travel);
   }
-  modal.isOpen = false;
-  modal.pending = false;
-  modal.travel = undefined;
+  formModal.isOpen = false;
+  formModal.pending = false;
+  formModal.travel = undefined;
 }
 </script>
