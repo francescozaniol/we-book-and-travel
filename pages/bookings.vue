@@ -3,7 +3,7 @@
 
     <div class="flex items-center align-middle py-6 max-sm:block">
       <div>
-        <UButton color="red" icon="i-heroicons-plus-circle" size="xl" class="max-sm:w-full max-sm:justify-center" @click="addBooking">Add new Booking</UButton>
+        <UButton color="red" icon="i-heroicons-plus-circle" size="xl" class="max-sm:w-full max-sm:justify-center" @click="formModal.isOpen = true">Add new Booking</UButton>
       </div>
     </div>
 
@@ -17,6 +17,11 @@
           {{ row.customer.email }} | {{ row.customer.phone }}<br/>
           Age: {{ row.customer.age }} | Gender: {{ labelsUtil.getGenderLabel(row.customer.gender) }}<br/>
         </template>
+        <template #travel-data="{ row }">
+          <strong>{{ row.travel.title }}</strong><br/>
+          Dates: {{ row.travel.dates.departure }} to {{ row.travel.dates.return }}<br/>
+          Price: {{ row.travel.price }}$
+        </template>
         <template #payment-data="{ row }">
           {{ labelsUtil.getPaymentLabel(row.payment) }}<br/>
         </template>
@@ -25,6 +30,14 @@
         </template>
       </UTable>
     </div>
+
+    <UModal v-model="formModal.isOpen">
+      <BookingForm
+        :pending="formModal.pending"
+        @submit="saveBooking"
+        @cancel="formModal.isOpen = false"
+      />
+    </UModal>
 
   </div>
 </template>
@@ -41,6 +54,10 @@ const bookingsTableColumns = [
     label: 'ID'
   },
   {
+    key: 'travel',
+    label: 'Travel'
+  },
+  {
     key: 'customer',
     label: 'Customer'
   },
@@ -54,11 +71,19 @@ const bookingsTableColumns = [
   },
 ];
 
-await useAsyncData(() => Promise.all([
+useAsyncData(() => Promise.all([
   $store.bookings.fetchBookings(),
 ]));
 
-function addBooking () {
-  useModal().open(BookingForm);
+const formModal = reactive({
+  isOpen: false,
+  pending: false,
+});
+
+async function saveBooking (booking: NewBooking) {
+  formModal.pending = true;
+  await $store.bookings.storeBooking(booking);
+  formModal.isOpen = false;
+  formModal.pending = false;
 }
 </script>

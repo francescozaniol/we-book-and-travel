@@ -66,7 +66,7 @@
 </template>
 
 <script lang="ts" setup>
-const { travel } = defineProps({
+const { travel, pending } = defineProps({
   travel: {
     type: Object as PropType<Travel> | null,
     required: false,

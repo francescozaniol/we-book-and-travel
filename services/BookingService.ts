@@ -4,4 +4,11 @@ export default class {
     return $fetch('/api/bookings');
   }
 
+  static store(data: NewBooking) {
+    return $fetch('/api/bookings', {
+      method: 'PUT',
+      body: data,
+    });
+  }
+
 }
