@@ -27,7 +27,7 @@
       <UButton color="black" variant="solid" icon="i-heroicons-trash" @click="$emit('delete')">Delete</UButton>
     </div>
 
-</article>
+  </article>
 </template>
 
 <script lang="ts" setup>

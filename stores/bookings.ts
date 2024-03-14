@@ -42,7 +42,6 @@ export const useBookingsStore = defineStore('bookings', {
   actions: {
 
     fetchBookings() {
-      this.bookings = null;
       return BookingService.get().then(res => {
         this.bookings = res.data;
         return res;

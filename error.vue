@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ error.statusCode }}</h2>
+    <h2 v-if="error">{{ error.statusCode }}</h2>
     <UButton @click="handleError">Clear errors</UButton>
   </div>
 </template>

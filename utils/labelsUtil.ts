@@ -1,7 +1,8 @@
+import { Gender, Payment } from '@/stores/bookings'
 
 export const labelsUtil = {
 
-  getGenderLabel(gender: any): string | null {
+  getGenderLabel(gender: Gender): string | null {
     switch (gender) {
       case Gender.female: return 'Female';
       case Gender.male: return 'Male';
@@ -10,7 +11,7 @@ export const labelsUtil = {
     }
   },
 
-  getPaymentLabel(payment: any): string | null {
+  getPaymentLabel(payment: Payment): string | null {
     switch (payment) {
       case Payment.credit: return 'Credit';
       case Payment.paypal: return 'Paypal';
