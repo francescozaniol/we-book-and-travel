@@ -8,7 +8,7 @@
           </nuxt-link>
         </div>
         <div class="flex items-center flex-wrap max-sm:flex-initial space-x-8 max-sm:space-x-2 ml-auto justify-end">
-          <nuxt-link to="/bookings" class="border-b-[2px] transition-colors py-1 max-sm:p-0" :class="$route.path === '/bookings' ? 'border-red-600' : 'text-slate-600 border-transparent'">Bookings</nuxt-link>
+          <nuxt-link to="/bookings" class="border-b-[2px] transition-colors py-1 max-sm:p-0" :class="$route.path === '/bookings' ? 'border-red-600' : 'text-slate-600 dark:text-neutral-400 border-transparent'">Bookings</nuxt-link>
           <nuxt-link to="/" class="border-b-[2px] transition-colors py-1 max-sm:p-0" :class="$route.path === '/' ? 'border-red-600' : 'text-slate-600 border-transparent'">Travels</nuxt-link>
         </div>
       </nav>
