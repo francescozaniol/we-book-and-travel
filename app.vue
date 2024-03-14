@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 useHead({
   htmlAttrs: {
-    class: 'antialiased h-full',
+    class: 'antialiased h-full overflow-y-scroll',
   },
   bodyAttrs: {
     class: 'h-full m-0',

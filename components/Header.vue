@@ -1,15 +1,15 @@
 <template>
-  <header class="h-[60px] relative">
-    <div class="fixed top-0 left-0 right-0 z-50 h-[60px] bg-white/90 backdrop-blur-md">
-      <nav class="container mx-auto flex items-center justify-between p-4 z-50">
+  <header class="h-[60px] w-full relative">
+    <div class="fixed top-0 w-full z-50 h-[60px] bg-white/90 backdrop-blur-md">
+      <nav class="container mx-auto flex items-center justify-between h-full px-4 z-50">
         <div class="z-50">
-          <nuxt-link to="/" class="text-xl font-bold border-none z-50 [&>*]:inline-block">
-            <span class="text-red-600 font-medium">We</span><span class="text-slate-900 font-">Book</span><span class="text-md text-slate-400 font-normal">&</span><span class="text-slate-900">Travel</span>
+          <nuxt-link to="/" class="text-xl font-bold border-none z-50 [&>*]:inline-block whitespace-nowrap py-2">
+            <span class="text-red-600 font-medium">We</span><span class="text-slate-900 font-">B<span class="max-sm:sr-only">ook</span></span><span class="text-md text-slate-400 font-normal">&</span><span class="text-slate-900">T<span class="max-sm:sr-only">ravel</span></span>
           </nuxt-link>
         </div>
-        <div class="lg:flex items-center space-x-8">
-          <nuxt-link to="/bookings" class="border-none">Bookings</nuxt-link>
-          <nuxt-link to="/" class="border-none">Travels</nuxt-link>
+        <div class="flex items-center flex-wrap max-sm:flex-initial space-x-8 max-sm:space-x-2 ml-auto justify-end">
+          <nuxt-link to="/bookings" class="border-b-[2px] border-transparent transition-colors py-1 max-sm:p-0" :class="$route.path === '/bookings' ? 'border-red-600' : 'text-slate-600'">Bookings</nuxt-link>
+          <nuxt-link to="/" class="border-b-[2px] border-transparent transition-colors py-1 max-sm:p-0" :class="$route.path === '/' ? 'border-red-600' : 'text-slate-600'">Travels</nuxt-link>
         </div>
       </nav>
     </div>
