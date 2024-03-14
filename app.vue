@@ -15,3 +15,9 @@ useHead({
   },
 });
 </script>
+
+<style>
+#__nuxt {
+  @apply h-full;
+}
+</style>
