@@ -54,21 +54,20 @@ function removeTravel (travel: Travel) {
   }
 }
 
-const filters = <Ref<TravelsFilters>>ref({
+const filters = <TravelsFilters>reactive({
   q: '',
 });
 function filterTravels () {
   useAsyncData(() => $store.travels.filterTravels(unref(filters)));
 }
 function resetTravelsFilters () {
-  if ( !filters.value.q ) fetchTravels();
+  if ( !filters.q ) fetchTravels();
 }
 
-const modal = useModal();
 function editTravel (travel: Travel) {
-  modal.open(TravelForm, { travel });
+  useModal().open(TravelForm, { travel });
 }
 function addTravel () {
-  modal.open(TravelForm);
+  useModal().open(TravelForm);
 }
 </script>

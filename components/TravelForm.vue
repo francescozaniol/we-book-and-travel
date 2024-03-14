@@ -52,8 +52,8 @@
 
         <template #footer>
           <div class="flex justify-end space-x-2">
-            <UButton color="green" size="lg" class="px-6" type="submit">Save</UButton>
-            <UButton color="black" size="lg" class="px-6" @click="useModal().close()">Cancel</UButton>
+            <UButton color="green" size="md" class="px-5" icon="i-heroicons-check" type="submit">Save</UButton>
+            <UButton color="black" size="md" class="px-5" icon="i-heroicons-x-circle" @click="useModal().close()">Cancel</UButton>
           </div>
         </template>
       </UCard>

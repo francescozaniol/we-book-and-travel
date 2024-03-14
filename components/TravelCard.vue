@@ -10,7 +10,7 @@
 
     <h1 class="pt-4 px-6">{{ travel.title }}</h1>
 
-    <p class="px-6 2xl:line-clamp-3 xl:line-clamp-2 lg:line-clamp-4 md:line-clamp-2 sm:line-clamp-4">{{ travel.description }}</p>
+    <p class="px-5 2xl:line-clamp-3 xl:line-clamp-2 lg:line-clamp-4 md:line-clamp-2 sm:line-clamp-4">{{ travel.description }}</p>
 
     <div class="text-md text-slate-900 pt-2 px-6 mt-auto">
       <div class="flex flex-row space-x-4 mb-2">

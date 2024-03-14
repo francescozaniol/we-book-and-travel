@@ -30,6 +30,7 @@
 </template>
 
 <script lang="ts" setup>
+import { BookingForm } from '#components'
 const { $store } = useNuxtApp();
 
 const bookings = computed(() => $store.bookings.bookings);
@@ -58,6 +59,6 @@ await useAsyncData(() => Promise.all([
 ]));
 
 function addBooking () {
-  console.log(1);
+  useModal().open(BookingForm);
 }
 </script>
