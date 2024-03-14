@@ -7,6 +7,7 @@ export default defineEventHandler(async (event) => {
   return {
     data: {
       ...body,
+      travel: travels.find(t => t.id === body.travelId),
       id: Math.floor(Math.random() * 10000),
     } as typeof bookings[number],
   };
