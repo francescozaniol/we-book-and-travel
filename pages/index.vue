@@ -7,7 +7,7 @@
       </div>
       <hr class="md:hidden my-6" />
       <form class="flex ml-auto justify-end space-x-2" @submit.prevent="filterTravels">
-        <UInput id="filter.search" class="w-full" type="search" name="description" v-model="filters.q" placeholder="Search" />
+        <UInput id="filter.search" class="w-full" type="search" name="description" v-model="filters.q" placeholder="Search" @focus="searchInputHasFocus = true" @blur="searchInputHasFocus = false" />
         <UButton color="black" variant="solid" type="submit">Search</UButton>
       </form>
     </div>
@@ -88,8 +88,9 @@ const filters = <TravelsFilters>reactive({
 function filterTravels () {
   useAsyncData(() => $store.travels.filterTravels(unref(filters)));
 }
+const searchInputHasFocus = ref(false);
 watchEffect(() => {
-  if ( filters.q === '' ) $store.travels.fetchTravels();
+  if ( searchInputHasFocus.value && filters.q === '' ) $store.travels.fetchTravels();
 });
 
 const formModal = reactive({
