@@ -3,7 +3,7 @@
 
     <div class="flex items-center align-middle py-6 max-sm:block">
       <div>
-        <UButton color="red" icon="i-heroicons-plus-circle" size="xl" class="max-sm:w-full max-sm:justify-center" @click="addTravel">Add new Travel</UButton>
+        <UButton color="red" icon="i-heroicons-plus-circle" size="xl" class="max-sm:w-full max-sm:justify-center" @click="editTravel(undefined)">Add new Travel</UButton>
       </div>
       <hr class="md:hidden my-6" />
       <form class="flex ml-auto justify-end space-x-2" @submit.prevent="filterTravels">
@@ -28,6 +28,14 @@
       </div>
     </div>
 
+    <UModal v-model="modal.isOpen">
+      <TravelForm
+        :travel="modal.travel"
+        :pending="modal.pending"
+        @submit="saveTravel"
+        @cancel="modal.isOpen = false"
+      />
+    </UModal>
   </div>
 </template>
 
@@ -38,15 +46,12 @@ const { $store } = useNuxtApp();
 
 const travels = computed(() => $store.travels.travels);
 
-function fetchTravels () {
-  useAsyncData(() => Promise.all([
-    $store.travels.fetchTravels(),
-  ]), {
-    lazy: true,
-    server: false,
-  });
-}
-fetchTravels();
+useAsyncData(() => Promise.all([
+  $store.travels.fetchTravels(),
+]), {
+  lazy: true,
+  server: false,
+});
 
 function removeTravel (travel: Travel) {
   if (confirm(`Mate, u sure u wanna delete ${travel.title}?`)) {
@@ -61,13 +66,28 @@ function filterTravels () {
   useAsyncData(() => $store.travels.filterTravels(unref(filters)));
 }
 function resetTravelsFilters () {
-  if ( !filters.q ) fetchTravels();
+  if ( !filters.q ) $store.travels.fetchTravels();
 }
 
-function editTravel (travel: Travel) {
-  useModal().open(TravelForm, { travel });
+const modal = reactive({
+  isOpen: false,
+  pending: false,
+  travel: <Travel | undefined>undefined,
+});
+function editTravel (travel: Travel | undefined) {
+  modal.isOpen = true;
+  modal.travel = travel;
 }
-function addTravel () {
-  useModal().open(TravelForm);
+
+async function saveTravel (travel: Travel | NewTravel) {
+  modal.pending = true;
+  if ( travel.id === null ){
+    await $store.travels.storeTravel(travel);
+  } else{
+    await $store.travels.updateTravel(travel);
+  }
+  modal.isOpen = false;
+  modal.pending = false;
+  modal.travel = undefined;
 }
 </script>
