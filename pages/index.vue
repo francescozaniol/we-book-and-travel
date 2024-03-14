@@ -7,7 +7,7 @@
       </div>
       <hr class="md:hidden my-6" />
       <form class="flex ml-auto justify-end space-x-2" @submit.prevent="filterTravels">
-        <UInput id="filter.search" class="w-full" type="search" name="description" v-model="filters.q" placeholder="Search" @focus="searchInputHasFocus = true" @blur="searchInputHasFocus = false" />
+        <UInput id="filter.search" class="w-full" type="search" name="filter.search" v-model="filters.q" placeholder="Search" @focus="searchInputHasFocus = true" @blur="searchInputHasFocus = false" />
         <UButton color="black" variant="solid" type="submit">Search</UButton>
       </form>
     </div>
