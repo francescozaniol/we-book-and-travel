@@ -12,7 +12,7 @@
       </form>
     </div>
 
-    <div v-if="travels && !travels.length">No search results</div>
+    <div v-if="travels && !travels.length">No search results 😞</div>
     <div v-else class="list-none m-0 p-0 grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 xs:grid-cols-1 gap-6">
       <div v-if="travels" class="m-0 p-0 xl:aspect-[8/12] lg:aspect-[8/13] md:aspect-[8/11] sm:aspect-[8/13] xs:grid-cols-1 card-fade-in" v-for="(travel, i) in travels" :key="travel.id" :style="`animation-delay:${i*50}ms`">
         <TravelCard
