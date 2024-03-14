@@ -3,7 +3,7 @@
 
     <div class="flex items-center align-middle py-6 max-sm:block">
       <div>
-        <UButton color="red" icon="i-heroicons-plus-circle" size="xl" class="max-sm:w-full" @click="addTravel">Add new Travel</UButton>
+        <UButton color="red" icon="i-heroicons-plus-circle" size="xl" class="max-sm:w-full max-sm:justify-center" @click="addTravel">Add new Travel</UButton>
       </div>
       <hr class="md:hidden my-6" />
       <form class="flex ml-auto justify-end space-x-2" @submit.prevent="filterTravels">
