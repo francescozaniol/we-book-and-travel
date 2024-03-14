@@ -16,6 +16,17 @@ useHead({
 </script>
 
 <style>
+@media (prefers-reduced-motion: no-preference) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: opacity .15s ease;
+  }
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 0;
+  }
+}
+
 #__nuxt {
   @apply h-full;
 }

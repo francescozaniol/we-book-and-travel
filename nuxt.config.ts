@@ -9,7 +9,8 @@ export default defineNuxtConfig({
           content: 'This travels and bookings management system is truly impressive'
         }
       ],
-    }
+    },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
   modules: [
     '@pinia/nuxt',
