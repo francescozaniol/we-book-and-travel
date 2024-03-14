@@ -89,7 +89,7 @@ function filterTravels () {
   useAsyncData(() => $store.travels.filterTravels(unref(filters)));
 }
 const searchInputHasFocus = ref(false);
-watchEffect(() => {
+watch(() => filters.q, () => {
   if ( searchInputHasFocus.value && filters.q === '' ) $store.travels.fetchTravels();
 });
 
