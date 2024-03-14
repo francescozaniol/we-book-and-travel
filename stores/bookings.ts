@@ -23,6 +23,7 @@ export type Customer = {
 export type Booking = {
   id: number,
   travelId: Travel['id'],
+  travel: Travel,
   customer: Customer,
   payment: Payment,
   notes: string,
