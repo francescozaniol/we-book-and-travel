@@ -1,5 +1,5 @@
 <template>
-  <div class="px-5 pt-16 pb-20 container mx-auto">
+  <div class="px-5 pb-20 container mx-auto">
 
     <div class="flex items-center align-middle py-6 max-sm:block">
       <div>
