@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="$emit('submit', unref(editedTravel))">
 
-    <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
+    <UCard :ui="{ divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
 
       <template #header>
         <h1 class="text-3xl">

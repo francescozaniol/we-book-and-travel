@@ -1,5 +1,5 @@
 <template>
-  <article class="flex flex-col relative shadow-xl rounded-lg group h-full hover:shadow-2xl transition-[shadow, transform] duration-200 hover:-translate-y-1 dark:bg-neutral-800">
+  <article class="flex flex-col relative shadow-xl rounded-lg group h-full hover:shadow-2xl transition-[shadow, transform] duration-200 [@media(hover:hover)]:hover:-translate-y-1 dark:bg-neutral-800">
 
     <div class="aspect-[16/9] overflow-hidden rounded-t-lg relative">
       <span class="absolute bottom-2 right-2 z-10 p-1 px-3 bg-white text-black dark:bg-neutral-900 dark:text-white rounded-xl">
