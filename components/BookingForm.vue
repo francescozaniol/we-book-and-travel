@@ -37,13 +37,13 @@
             </div>
 
             <div>
-              <label for="editedBooking.travelId">Travel</label>
+              <label for="editedBooking.travel">Travel</label>
               <UInputMenu
-                id="editedBooking.title"
+                id="editedBooking.travel"
                 v-model="editedBooking.travel"
                 size="lg"
                 class="w-full"
-                name="editedBooking.title"
+                name="editedBooking.travel"
                 by="id"
                 :search="searchTravels"
                 option-attribute="title"
