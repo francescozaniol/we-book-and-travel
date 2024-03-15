@@ -337,13 +337,14 @@ async function searchTravels (q: string) {
 const emit = defineEmits(['submit', 'cancel']);
 function submit () {
   emit('submit', {
-    ...(({ travel: Travel, ...o }) => o)(unref(editedBooking)),
+    id: editedBooking.id,
     travelId: editedBooking.travel?.id,
     customer: {
       ...unref(editedBooking.customer),
       gender: Number(editedBooking.customer.gender),
     },
     payment: Number(editedBooking.payment),
-  })
+    notes: editedBooking.notes,
+  });
 }
 </script>
