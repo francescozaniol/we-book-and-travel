@@ -1,4 +1,4 @@
-import { Gender, Payment } from '@/stores/bookings'
+import { Gender, Payment } from '@/stores/bookings';
 
 export const labelsUtil = {
 
@@ -20,4 +20,4 @@ export const labelsUtil = {
     }
   },
 
-}
+};

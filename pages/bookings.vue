@@ -1,9 +1,16 @@
 <template>
   <div class="px-5 pb-20 container mx-auto">
-
     <div class="flex items-center align-middle py-6 max-sm:block">
       <div>
-        <UButton color="red" icon="i-heroicons-plus-circle" size="xl" class="max-sm:w-full max-sm:justify-center" @click="formModal.isOpen = true">Add new Booking</UButton>
+        <UButton
+          color="red"
+          icon="i-heroicons-plus-circle"
+          size="xl"
+          class="max-sm:w-full max-sm:justify-center"
+          @click="formModal.isOpen = true"
+        >
+          Add new Booking
+        </UButton>
       </div>
     </div>
 
@@ -13,20 +20,22 @@
         :columns="bookingsTableColumns"
       >
         <template #customer-data="{ row }">
-          <strong>{{ row.customer.name }}</strong><br/>
-          {{ row.customer.email }} | {{ row.customer.phone }}<br/>
-          Age: {{ row.customer.age }} | Gender: {{ labelsUtil.getGenderLabel(row.customer.gender) }}<br/>
+          <strong>{{ row.customer.name }}</strong><br>
+          {{ row.customer.email }} | {{ row.customer.phone }}<br>
+          Age: {{ row.customer.age }} | Gender: {{ labelsUtil.getGenderLabel(row.customer.gender) }}<br>
         </template>
         <template #travel-data="{ row }">
-          <strong>{{ row.travel.title }}</strong><br/>
-          Dates: {{ row.travel.dates.departure }} to {{ row.travel.dates.return }}<br/>
+          <strong>{{ row.travel.title }}</strong><br>
+          Dates: {{ row.travel.dates.departure }} to {{ row.travel.dates.return }}<br>
           Price: {{ row.travel.price }}$
         </template>
         <template #payment-data="{ row }">
-          {{ labelsUtil.getPaymentLabel(row.payment) }}<br/>
+          {{ labelsUtil.getPaymentLabel(row.payment) }}<br>
         </template>
         <template #notes-data="{ row }">
-          <div class="min-w-[40ch] w-full whitespace-normal">{{ row.notes }}</div>
+          <div class="min-w-[40ch] w-full whitespace-normal">
+            {{ row.notes }}
+          </div>
         </template>
       </UTable>
     </div>
@@ -38,12 +47,11 @@
         @cancel="formModal.isOpen = false"
       />
     </UModal>
-
   </div>
 </template>
 
 <script lang="ts" setup>
-import { BookingForm } from '#components'
+import { BookingForm } from '#components';
 const { $store } = useNuxtApp();
 
 const bookings = computed(() => $store.bookings.bookings);
@@ -51,23 +59,23 @@ const bookings = computed(() => $store.bookings.bookings);
 const bookingsTableColumns = [
   {
     key: 'id',
-    label: 'ID'
+    label: 'ID',
   },
   {
     key: 'travel',
-    label: 'Travel'
+    label: 'Travel',
   },
   {
     key: 'customer',
-    label: 'Customer'
+    label: 'Customer',
   },
   {
     key: 'payment',
-    label: 'Payment'
+    label: 'Payment',
   },
   {
     key: 'notes',
-    label: 'Notes'
+    label: 'Notes',
   },
 ];
 

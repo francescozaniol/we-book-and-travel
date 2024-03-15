@@ -1,30 +1,53 @@
 <template>
   <form @submit.prevent="$emit('submit', unref(editedTravel))">
-
     <UCard :ui="{ divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-
       <template #header>
         <h1 class="text-3xl">
-          <template v-if="editedTravel.id === null">Add new Travel</template>
-          <template v-else>Edit travel</template>
+          <template v-if="editedTravel.id === null">
+            Add new Travel
+          </template>
+          <template v-else>
+            Edit travel
+          </template>
         </h1>
       </template>
 
       <div class="space-y-3">
-
         <div>
           <label for="editedTravel.title">Title</label>
-          <UInput size="lg" id="editedTravel.title" class="w-full" type="text" name="editedTravel.title" v-model="editedTravel.title" required />
+          <UInput
+            id="editedTravel.title"
+            v-model="editedTravel.title"
+            size="lg"
+            class="w-full"
+            type="text"
+            name="editedTravel.title"
+            required
+          />
         </div>
 
         <div>
           <label for="editedTravel.description">Description</label>
-          <UInput size="lg" id="editedTravel.description" class="w-full" type="text" name="editedTravel.description" v-model="editedTravel.description" required />
+          <UInput
+            id="editedTravel.description"
+            v-model="editedTravel.description"
+            size="lg"
+            class="w-full"
+            type="text"
+            name="editedTravel.description"
+            required
+          />
         </div>
 
         <div>
           <label for="editedTravel.rating">Ratings</label>
-          <USelect size="lg" id="editedTravel.rating" class="w-full" name="editedTravel.rating" v-model="editedTravel.rating" required
+          <USelect
+            id="editedTravel.rating"
+            v-model="editedTravel.rating"
+            size="lg"
+            class="w-full"
+            name="editedTravel.rating"
+            required
             :options="[
               { 'value': 0.5, name: '0,5' },
               { 'value': 1, name: '1' },
@@ -42,34 +65,82 @@
 
         <div>
           <label for="editedTravel.price">Price</label>
-          <UInput size="lg" type="number" id="editedTravel.price" class="w-full" name="editedTravel.dates.departure" v-model="editedTravel.price" required />
+          <UInput
+            id="editedTravel.price"
+            v-model="editedTravel.price"
+            size="lg"
+            type="number"
+            class="w-full"
+            name="editedTravel.dates.departure"
+            required
+          />
         </div>
 
         <div>
           <label for="editedTravel.dates.departure">Departure date</label>
-          <UInput size="lg" type="date" id="editedTravel.dates.departure" class="w-full" name="editedTravel.dates.departure" v-model="editedTravel.dates.departure" required />
+          <UInput
+            id="editedTravel.dates.departure"
+            v-model="editedTravel.dates.departure"
+            size="lg"
+            type="date"
+            class="w-full"
+            name="editedTravel.dates.departure"
+            required
+          />
         </div>
 
         <div>
           <label for="editedTravel.dates.return">Return date</label>
-          <UInput size="lg" type="date" id="editedTravel.dates.return" class="w-full" name="editedTravel.dates.return" v-model="editedTravel.dates.return" required />
+          <UInput
+            id="editedTravel.dates.return"
+            v-model="editedTravel.dates.return"
+            size="lg"
+            type="date"
+            class="w-full"
+            name="editedTravel.dates.return"
+            required
+          />
         </div>
 
         <div>
           <label for="editedTravel.img.src">Image URL</label>
-          <UInput size="lg" type="url" id="editedTravel.img.src" class="w-full" name="editedTravel.img.src" v-model="editedTravel.img.src" required />
+          <UInput
+            id="editedTravel.img.src"
+            v-model="editedTravel.img.src"
+            size="lg"
+            type="url"
+            class="w-full"
+            name="editedTravel.img.src"
+            required
+          />
         </div>
-
       </div>
 
       <template #footer>
         <div class="flex justify-end space-x-2">
-          <UButton color="green" size="md" class="px-5 disabled:opacity-40" icon="i-heroicons-check" type="submit" :disabled="!isDataValid" :loading="pending">Save</UButton>
-          <UButton color="black" size="md" class="px-5" icon="i-heroicons-x-circle" @click="$emit('cancel')">Cancel</UButton>
+          <UButton
+            color="green"
+            size="md"
+            class="px-5 disabled:opacity-40"
+            icon="i-heroicons-check"
+            type="submit"
+            :disabled="!isDataValid"
+            :loading="pending"
+          >
+            Save
+          </UButton>
+          <UButton
+            color="black"
+            size="md"
+            class="px-5"
+            icon="i-heroicons-x-circle"
+            @click="$emit('cancel')"
+          >
+            Cancel
+          </UButton>
         </div>
       </template>
     </UCard>
-
   </form>
 </template>
 
@@ -87,7 +158,9 @@ const { travel, pending } = defineProps({
   },
 });
 
-const editedTravel = <Ref<Travel | NewTravel>>ref({});
+defineEmits(['submit', 'cancel']);
+
+const editedTravel = ref({}) as Ref<Travel | NewTravel>;
 
 if ( travel === null ){
   editedTravel.value = {
@@ -103,8 +176,8 @@ if ( travel === null ){
     img: {
       src: "https://via.placeholder.com/350x150",
     },
-  }
-} else{
+  };
+} else {
   editedTravel.value = JSON.parse(JSON.stringify(toRaw(travel)));
 }
 

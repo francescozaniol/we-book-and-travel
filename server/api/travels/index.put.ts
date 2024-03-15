@@ -9,4 +9,4 @@ export default defineEventHandler(async (event) => {
       id: Math.floor(Math.random() * 10000),
     } as typeof travels[number],
   };
-})
+});

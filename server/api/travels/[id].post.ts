@@ -6,4 +6,4 @@ export default defineEventHandler(async (event) => {
   return {
     data: body as typeof travels[number],
   };
-})
+});

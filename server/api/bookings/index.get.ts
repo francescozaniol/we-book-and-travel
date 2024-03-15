@@ -6,9 +6,9 @@ const bookingsData = bookings.map(booking => ({
   travel: travels.find(t => t.id === booking.travelId),
 }));
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   await new Promise(r => setTimeout(r, 400)); // simulate DB fetching
   return {
     data: bookingsData,
   };
-})
+});
