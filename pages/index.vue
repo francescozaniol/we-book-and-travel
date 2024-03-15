@@ -38,8 +38,8 @@
     </UModal>
 
     <UModal v-if="deleteModal.travel" v-model="deleteModal.isOpen">
-      <UCard :ui="{ ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-        <p>U sure u wanna delete <strong>{{ deleteModal.travel.title }}</strong>?</p>
+      <UCard :ui="{ divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
+        <p>Are you sure you want to delete <strong>{{ deleteModal.travel.title }}</strong>?</p>
         <template #footer>
           <div class="flex justify-end space-x-2">
             <UButton color="red" size="md" class="px-5 disabled:opacity-40" icon="i-heroicons-trash" @click="deleteTravel" :loading="deleteModal.pending">Yes, delete it</UButton>
