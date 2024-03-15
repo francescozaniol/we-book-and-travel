@@ -28,6 +28,6 @@ useHead({
 }
 
 #__nuxt {
-  @apply h-full;
+  height: 100%;
 }
 </style>
