@@ -90,8 +90,11 @@ const formModal = reactive({
 
 async function saveBooking (booking: NewBooking) {
   formModal.pending = true;
-  await $store.bookings.storeBooking(booking);
-  formModal.isOpen = false;
-  formModal.pending = false;
+  try {
+    await $store.bookings.storeBooking(booking);
+    formModal.isOpen = false;
+  } finally {
+    formModal.pending = false;
+  }
 }
 </script>
