@@ -6,13 +6,15 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'description',
-          content: 'This website is truly impressive.'
-        }
+          content: 'This travels and bookings management system is truly impressive',
+        },
       ],
-    }
+    },
+    pageTransition: { name: 'page', mode: 'out-in' },
   },
   modules: [
     '@pinia/nuxt',
+    '@nuxt/ui',
   ],
   postcss: {
     plugins: {
@@ -20,5 +22,4 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  css: ['@/assets/css/main.css'],
 });

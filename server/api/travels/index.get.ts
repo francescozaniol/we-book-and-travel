@@ -6,4 +6,4 @@ export default defineEventHandler(async (event) => {
   return {
     data: !q ? travels : travels.filter(t => new RegExp(q, 'i').test(t.title)),
   };
-})
+});

@@ -32,6 +32,7 @@ export const useTravelsStore = defineStore('travels', {
   actions: {
 
     fetchTravels() {
+      this.travels = null;
       return TravelService.index().then(res => {
         this.travels = res.data;
         return res;
@@ -39,16 +40,20 @@ export const useTravelsStore = defineStore('travels', {
     },
 
     filterTravels(filters: TravelsFilters) {
-      console.log(1, filters);
+      this.travels = null;
       return TravelService.index({ q: filters.q }).then(res => {
         this.travels = res.data;
         return res;
       });
     },
 
+    searchTravels(q: string) {
+      return TravelService.index({ q });
+    },
+
     storeTravel(data: NewTravel) {
       return TravelService.store(data).then(res => {
-        this.travels?.push(res.data);
+        this.travels?.unshift(res.data);
         return res;
       });
     },
@@ -70,4 +75,4 @@ export const useTravelsStore = defineStore('travels', {
 
   },
 
-})
+});

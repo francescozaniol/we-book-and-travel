@@ -1,3 +1,4 @@
+import bookings from '@/server/mocks/bookings.json';
 import travels from '@/server/mocks/travels.json';
 
 export default defineEventHandler(async (event) => {
@@ -6,7 +7,8 @@ export default defineEventHandler(async (event) => {
   return {
     data: {
       ...body,
+      travel: travels.find(t => t.id === body.travelId),
       id: Math.floor(Math.random() * 10000),
-    } as typeof travels[number],
+    } as typeof bookings[number],
   };
 });

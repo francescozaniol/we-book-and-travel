@@ -1,11 +1,11 @@
-export default defineNuxtPlugin(nuxtApp => {
+export default defineNuxtPlugin(() => {
   return {
     name: 'store',
     provide: {
       store: {
         bookings: useBookingsStore(),
         travels: useTravelsStore(),
-      }
-    }
-  }
-})
+      },
+    },
+  };
+});

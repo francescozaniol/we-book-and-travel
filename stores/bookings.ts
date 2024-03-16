@@ -23,9 +23,14 @@ export type Customer = {
 export type Booking = {
   id: number,
   travelId: Travel['id'],
+  travel: Travel,
   customer: Customer,
   payment: Payment,
   notes: string,
+};
+
+export type NewBooking = Omit<Booking, 'id' | 'travel'> & {
+  id: null,
 };
 
 export const useBookingsStore = defineStore('bookings', {
@@ -35,12 +40,21 @@ export const useBookingsStore = defineStore('bookings', {
   }),
 
   actions: {
+
     fetchBookings() {
       return BookingService.get().then(res => {
         this.bookings = res.data;
         return res;
       });
     },
+
+    storeBooking(data: NewBooking) {
+      return BookingService.store(data).then(res => {
+        this.bookings?.unshift(res.data as Booking);
+        return res;
+      });
+    },
+
   },
 
-})
+});
