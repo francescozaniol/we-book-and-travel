@@ -156,7 +156,7 @@ const filters = reactive({
   q: '',
 }) as TravelsFilters;
 function filterTravels () {
-  useAsyncData(() => $store.travels.filterTravels(unref(filters)));
+  $store.travels.filterTravels(unref(filters));
 }
 const searchInputHasFocus = ref(false);
 watch(() => filters.q, () => {
