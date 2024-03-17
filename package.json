@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:watch": "vitest  --mode development"
+    "test:watch": "vitest **/*.test.js --mode development"
   },
   "overrides": {
     "vue": "latest"
