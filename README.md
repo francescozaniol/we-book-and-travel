@@ -23,3 +23,13 @@ npm run build
 ```
 npm run generate
 ```
+
+## Unit Test
+```
+npm run test:watch
+```
+
+## Test: Unit + E2E
+```
+npm run test
+```

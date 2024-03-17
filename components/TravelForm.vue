@@ -147,7 +147,7 @@
 <script lang="ts" setup>
 const { travel, pending } = defineProps({
   travel: {
-    type: Object as PropType<Travel> | null,
+    type: Object as PropType<Travel | null>,
     required: false,
     default: null,
   },

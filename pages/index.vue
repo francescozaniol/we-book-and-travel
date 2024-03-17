@@ -143,10 +143,13 @@ function confirmTravelDelete (travel: Travel) {
 }
 async function deleteTravel () {
   deleteModal.pending = true;
-  await $store.travels.deleteTravel(deleteModal.travel as Travel);
-  deleteModal.pending = false;
-  deleteModal.isOpen = false;
-  deleteModal.travel = null;
+  try {
+    await $store.travels.deleteTravel(deleteModal.travel as Travel);
+    deleteModal.isOpen = false;
+    deleteModal.travel = null;
+  } finally {
+    deleteModal.pending = false;
+  }
 }
 
 const filters = reactive({
@@ -172,14 +175,17 @@ function editTravel (travel: Travel | undefined) {
 
 async function saveTravel (travel: Travel | NewTravel) {
   formModal.pending = true;
-  if ( travel.id === null ){
-    await $store.travels.storeTravel(travel);
-  } else{
-    await $store.travels.updateTravel(travel);
+  try {
+    if ( travel.id === null ){
+      await $store.travels.storeTravel(travel);
+    } else {
+      await $store.travels.updateTravel(travel);
+    }
+    formModal.isOpen = false;
+    formModal.travel = undefined;
+  } finally {
+    formModal.pending = false;
   }
-  formModal.isOpen = false;
-  formModal.pending = false;
-  formModal.travel = undefined;
 }
 </script>
 
