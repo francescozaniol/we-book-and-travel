@@ -1,4 +1,4 @@
-import { Gender, Payment } from '@/stores/bookings';
+import { Gender, Payment } from '@/enums';
 
 export const labelsUtil = {
 

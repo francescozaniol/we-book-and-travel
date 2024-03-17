@@ -245,6 +245,7 @@
 </template>
 
 <script lang="ts" setup>
+import { Gender, Payment } from '@/enums';
 const { $store } = useNuxtApp();
 
 const { pending } = defineProps({
