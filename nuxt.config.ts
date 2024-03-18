@@ -23,4 +23,19 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  i18n: {
+    detectBrowserLanguage: {
+      fallbackLocale: 'en',
+    },
+    defaultLocale: 'en',
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json',
+      },
+    ],
+    lazy: false,
+    langDir: 'lang',
+  },
 });
