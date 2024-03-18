@@ -1,28 +1,5 @@
 import TravelService from '@/services/TravelService';
 
-export type Travel = {
-  id: number,
-  title: string,
-  description: string,
-  rating: number,
-  price: number,
-  dates: {
-    departure: string,
-    return: string,
-  },
-  img: {
-    src: string,
-  },
-};
-
-export type TravelsFilters = {
-  q: string,
-};
-
-export type NewTravel = Omit<Travel, 'id'> & {
-  id: null,
-};
-
 export const useTravelsStore = defineStore('travels', {
 
   state: () => ({

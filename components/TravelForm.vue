@@ -4,17 +4,17 @@
       <template #header>
         <h1 class="text-3xl">
           <template v-if="editedTravel.id === null">
-            Add new Travel
+            {{ $t('TRAVELS.ADD_NEW') }}
           </template>
           <template v-else>
-            Edit travel
+            {{ $t('TRAVELS.EDIT_TRAVEL') }}
           </template>
         </h1>
       </template>
 
       <div class="space-y-3">
         <div>
-          <label for="editedTravel.title">Title</label>
+          <label for="editedTravel.title">{{ $t('TRAVELS.TITLE') }}</label>
           <UInput
             id="editedTravel.title"
             v-model="editedTravel.title"
@@ -27,7 +27,7 @@
         </div>
 
         <div>
-          <label for="editedTravel.description">Description</label>
+          <label for="editedTravel.description">{{ $t('TRAVELS.DESCRIPTION') }}</label>
           <UInput
             id="editedTravel.description"
             v-model="editedTravel.description"
@@ -40,7 +40,7 @@
         </div>
 
         <div>
-          <label for="editedTravel.rating">Ratings</label>
+          <label for="editedTravel.rating">{{ $t('TRAVELS.RATING') }}</label>
           <USelect
             id="editedTravel.rating"
             v-model="editedTravel.rating"
@@ -64,7 +64,7 @@
         </div>
 
         <div>
-          <label for="editedTravel.price">Price</label>
+          <label for="editedTravel.price">{{ $t('TRAVELS.PRICE') }}</label>
           <UInput
             id="editedTravel.price"
             v-model="editedTravel.price"
@@ -77,7 +77,7 @@
         </div>
 
         <div>
-          <label for="editedTravel.dates.departure">Departure date</label>
+          <label for="editedTravel.dates.departure">{{ $t('TRAVELS.DEPARTURE_DATE') }}</label>
           <UInput
             id="editedTravel.dates.departure"
             v-model="editedTravel.dates.departure"
@@ -90,7 +90,7 @@
         </div>
 
         <div>
-          <label for="editedTravel.dates.return">Return date</label>
+          <label for="editedTravel.dates.return">{{ $t('TRAVELS.RETURN_DATE') }}</label>
           <UInput
             id="editedTravel.dates.return"
             v-model="editedTravel.dates.return"
@@ -103,7 +103,7 @@
         </div>
 
         <div>
-          <label for="editedTravel.img.src">Image URL</label>
+          <label for="editedTravel.img.src">{{ $t('TRAVELS.IMAGE_URL') }}</label>
           <UInput
             id="editedTravel.img.src"
             v-model="editedTravel.img.src"
@@ -127,7 +127,7 @@
             :disabled="!isDataValid"
             :loading="pending"
           >
-            Save
+            {{ $t('GENERIC.SAVE') }}
           </UButton>
           <UButton
             color="black"
@@ -136,7 +136,7 @@
             icon="i-heroicons-x-circle"
             @click="$emit('cancel')"
           >
-            Cancel
+            {{ $t('GENERIC.CANCEL') }}
           </UButton>
         </div>
       </template>

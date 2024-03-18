@@ -15,11 +15,27 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxt/ui',
+    '@nuxtjs/i18n',
   ],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  i18n: {
+    detectBrowserLanguage: {
+      fallbackLocale: 'en',
+    },
+    defaultLocale: 'en',
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json',
+      },
+    ],
+    lazy: false,
+    langDir: 'lang',
   },
 });
