@@ -15,6 +15,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxt/ui',
+    '@nuxtjs/i18n',
   ],
   postcss: {
     plugins: {
