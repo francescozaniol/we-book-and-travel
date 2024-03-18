@@ -16,14 +16,14 @@
             class="border-b-[2px] transition-colors py-1 max-sm:p-0"
             :class="$route.path === '/bookings' ? 'border-red-600' : 'text-slate-600 dark:text-neutral-400 border-transparent'"
           >
-            Bookings
+            {{ $t('BOOKINGS.BOOKINGS') }}
           </nuxt-link>
           <nuxt-link
             to="/"
             class="border-b-[2px] transition-colors py-1 max-sm:p-0"
             :class="$route.path === '/' ? 'border-red-600' : 'text-slate-600 border-transparent'"
           >
-            Travels
+            {{ $t('TRAVELS.TRAVELS') }}
           </nuxt-link>
         </div>
       </nav>

@@ -9,7 +9,7 @@
           class="max-sm:w-full max-sm:justify-center"
           @click="formModal.isOpen = true"
         >
-          Add new Booking
+          {{ $t('BOOKINGS.ADD_NEW') }}
         </UButton>
       </div>
     </div>
@@ -22,12 +22,12 @@
         <template #customer-data="{ row }">
           <strong>{{ row.customer.name }}</strong><br>
           {{ row.customer.email }} | {{ row.customer.phone }}<br>
-          Age: {{ row.customer.age }} | Gender: {{ labelsUtil.getGenderLabel(row.customer.gender) }}<br>
+          {{ $t('CUSTOMERS.AGE_SHOW', { age: row.customer.age }) }} | {{ $t('CUSTOMERS.GENDER_SHOW', { gender: labelsUtil.getGenderLabel(row.customer.gender) }) }}
         </template>
         <template #travel-data="{ row }">
           <strong>{{ row.travel.title }}</strong><br>
-          Dates: {{ row.travel.dates.departure }} to {{ row.travel.dates.return }}<br>
-          Price: {{ row.travel.price }}$
+          {{ $t('BOOKINGS.TRAVEL_DATES', { from: row.travel.dates.departure, to: row.travel.dates.return }) }}<br>
+          {{ $t('BOOKINGS.TRAVEL_PRICE', { n: row.travel.price }) }}
         </template>
         <template #payment-data="{ row }">
           {{ labelsUtil.getPaymentLabel(row.payment) }}<br>
@@ -52,30 +52,30 @@
 
 <script lang="ts" setup>
 import { BookingForm } from '#components';
-const { $store } = useNuxtApp();
+const { $store, $i18n } = useNuxtApp();
 
 const bookings = computed(() => $store.bookings.bookings);
 
 const bookingsTableColumns = [
   {
     key: 'id',
-    label: 'ID',
+    label: $i18n.t('BOOKINGS.ID'),
   },
   {
     key: 'travel',
-    label: 'Travel',
+    label: $i18n.t('BOOKINGS.TRAVEL'),
   },
   {
     key: 'customer',
-    label: 'Customer',
+    label: $i18n.t('BOOKINGS.CUSTOMER'),
   },
   {
     key: 'payment',
-    label: 'Payment',
+    label: $i18n.t('BOOKINGS.PAYMENT'),
   },
   {
     key: 'notes',
-    label: 'Notes',
+    label: $i18n.t('BOOKINGS.NOTES'),
   },
 ];
 
@@ -90,8 +90,11 @@ const formModal = reactive({
 
 async function saveBooking (booking: NewBooking) {
   formModal.pending = true;
-  await $store.bookings.storeBooking(booking);
-  formModal.isOpen = false;
-  formModal.pending = false;
+  try {
+    await $store.bookings.storeBooking(booking);
+    formModal.isOpen = false;
+  } finally {
+    formModal.pending = false;
+  }
 }
 </script>

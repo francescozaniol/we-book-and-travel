@@ -9,7 +9,7 @@
           class="max-sm:w-full max-sm:justify-center"
           @click="editTravel(undefined)"
         >
-          Add new Travel
+          {{ $t('TRAVELS.ADD_NEW') }}
         </UButton>
       </div>
       <hr class="md:hidden my-6">
@@ -32,13 +32,13 @@
           variant="solid"
           type="submit"
         >
-          Search
+          {{ $t('GENERIC.SEARCH') }}
         </UButton>
       </form>
     </div>
 
     <div v-if="travels && !travels.length">
-      No search results 😞
+      {{ $t('GENERIC.NO_RESULTS') }}
     </div>
     <div
       v-else
@@ -89,7 +89,7 @@
       v-model="deleteModal.isOpen"
     >
       <UCard :ui="{ divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-        <p>Are you sure you want to delete <strong>{{ deleteModal.travel.title }}</strong>?</p>
+        <p>{{ $t('GENERIC.CONFIRM_DELETE', { item: deleteModal.travel.title }) }}</p>
         <template #footer>
           <div class="flex justify-end space-x-2">
             <UButton
@@ -100,7 +100,7 @@
               :loading="deleteModal.pending"
               @click="deleteTravel"
             >
-              Yes, delete it
+              {{ $t('GENERIC.DELETE_YES') }}
             </UButton>
             <UButton
               color="black"
@@ -109,7 +109,7 @@
               icon="i-heroicons-x-circle"
               @click="deleteModal.isOpen = false"
             >
-              No, keep it
+              {{ $t('GENERIC.DELETE_NO') }}
             </UButton>
           </div>
         </template>
@@ -143,17 +143,20 @@ function confirmTravelDelete (travel: Travel) {
 }
 async function deleteTravel () {
   deleteModal.pending = true;
-  await $store.travels.deleteTravel(deleteModal.travel as Travel);
-  deleteModal.pending = false;
-  deleteModal.isOpen = false;
-  deleteModal.travel = null;
+  try {
+    await $store.travels.deleteTravel(deleteModal.travel as Travel);
+    deleteModal.isOpen = false;
+    deleteModal.travel = null;
+  } finally {
+    deleteModal.pending = false;
+  }
 }
 
 const filters = reactive({
   q: '',
 }) as TravelsFilters;
 function filterTravels () {
-  useAsyncData(() => $store.travels.filterTravels(unref(filters)));
+  $store.travels.filterTravels(unref(filters));
 }
 const searchInputHasFocus = ref(false);
 watch(() => filters.q, () => {
@@ -172,14 +175,17 @@ function editTravel (travel: Travel | undefined) {
 
 async function saveTravel (travel: Travel | NewTravel) {
   formModal.pending = true;
-  if ( travel.id === null ){
-    await $store.travels.storeTravel(travel);
-  } else{
-    await $store.travels.updateTravel(travel);
+  try {
+    if ( travel.id === null ){
+      await $store.travels.storeTravel(travel);
+    } else {
+      await $store.travels.updateTravel(travel);
+    }
+    formModal.isOpen = false;
+    formModal.travel = undefined;
+  } finally {
+    formModal.pending = false;
   }
-  formModal.isOpen = false;
-  formModal.pending = false;
-  formModal.travel = undefined;
 }
 </script>
 

@@ -4,7 +4,7 @@
       <template #header>
         <div class="flex justify-between items-center">
           <h1 class="text-3xl">
-            Add new Booking
+            {{ $t('BOOKINGS.ADD_NEW') }}
           </h1>
           <div class="*:align-middle whitespace-nowrap">
             <strong class="text-green-700 text-xl">{{ currentStep }}</strong><span class="text-sm text-slate-400"> / </span><span class="text-slate-400">3</span>
@@ -37,7 +37,7 @@
             </div>
 
             <div>
-              <label for="editedBooking.travel">Travel</label>
+              <label for="editedBooking.travel">{{ $t('BOOKINGS.TRAVEL') }}</label>
               <UInputMenu
                 id="editedBooking.travel"
                 v-model="editedBooking.travel"
@@ -65,8 +65,8 @@
                   class="bg-slate-100"
                 >
                   <template #description>
-                    Dates: {{ editedBooking.travel.dates.departure }} to {{ editedBooking.travel.dates.return }}<br>
-                    Price: {{ editedBooking.travel.price }}$
+                    {{ $t('BOOKINGS.TRAVEL_DATES', { from: editedBooking.travel.dates.departure, to: editedBooking.travel.dates.return }) }}<br>
+                    {{ $t('BOOKINGS.TRAVEL_PRICE', { n: editedBooking.travel.price }) }}
                   </template>
                 </UAlert>
               </div>
@@ -86,7 +86,7 @@
             </div>
 
             <div>
-              <label for="editedBooking.customer.name">Name</label>
+              <label for="editedBooking.customer.name">{{ $t('CUSTOMERS.NAME') }}</label>
               <UInput
                 id="editedBooking.customer.name"
                 v-model="editedBooking.customer.name"
@@ -99,7 +99,7 @@
             </div>
 
             <div>
-              <label for="editedBooking.customer.email">Email</label>
+              <label for="editedBooking.customer.email">{{ $t('CUSTOMERS.EMAIL') }}</label>
               <UInput
                 id="editedBooking.customer.email"
                 v-model="editedBooking.customer.email"
@@ -112,7 +112,7 @@
             </div>
 
             <div>
-              <label for="editedBooking.customer.phone">Phone</label>
+              <label for="editedBooking.customer.phone">{{ $t('CUSTOMERS.PHONE') }}</label>
               <UInput
                 id="editedBooking.customer.phone"
                 v-model="editedBooking.customer.phone"
@@ -125,7 +125,7 @@
             </div>
 
             <div>
-              <label for="editedBooking.customer.age">Age</label>
+              <label for="editedBooking.customer.age">{{ $t('CUSTOMERS.AGE') }}</label>
               <UInput
                 id="editedBooking.customer.age"
                 v-model="editedBooking.customer.age"
@@ -138,7 +138,7 @@
             </div>
 
             <div>
-              <label for="editedBooking.customer.gender">Gender</label>
+              <label for="editedBooking.customer.gender">{{ $t('CUSTOMERS.GENDER') }}</label>
               <USelect
                 id="editedBooking.customer.gender"
                 v-model="editedBooking.customer.gender"
@@ -165,7 +165,7 @@
             </div>
 
             <div>
-              <label for="editedBooking.payment">Payment type</label>
+              <label for="editedBooking.payment">{{ $t('BOOKINGS.PAYMENT_TYPE') }}</label>
               <USelect
                 id="editedBooking.payment"
                 v-model="editedBooking.payment"
@@ -179,7 +179,7 @@
             </div>
 
             <div>
-              <label for="editedBooking.notes">Notes <span class="text-slate-500 text-xs">(optional)</span></label>
+              <label for="editedBooking.notes">{{ $t('BOOKINGS.NOTES') }} <span class="text-slate-500 text-xs">({{ $t('GENERIC.OPTIONAL') }})</span></label>
               <UTextarea
                 id="editedBooking.notes"
                 v-model="editedBooking.notes"
@@ -204,7 +204,7 @@
             :disabled="currentStep === 1"
             @click="currentStep--"
           >
-            Back
+            {{ $t('GENERIC.BACK') }}
           </UButton>
           <UButton
             v-if="currentStep !== 3"
@@ -215,7 +215,7 @@
             :disabled="!isDataValid[currentStep-1]"
             @click="currentStep++"
           >
-            Next
+            {{ $t('GENERIC.NEXT') }}
           </UButton>
           <UButton
             v-else
@@ -227,7 +227,7 @@
             :disabled="!isDataValid[currentStep-1]"
             :loading="pending"
           >
-            Save
+            {{ $t('GENERIC.SAVE') }}
           </UButton>
           <UButton
             color="black"
@@ -236,7 +236,7 @@
             icon="i-heroicons-x-circle"
             @click="$emit('cancel')"
           >
-            Cancel
+            {{ $t('GENERIC.CANCEL') }}
           </UButton>
         </div>
       </template>
@@ -245,7 +245,8 @@
 </template>
 
 <script lang="ts" setup>
-const { $store } = useNuxtApp();
+import { Gender, Payment } from '@/enums';
+const { $store, $i18n } = useNuxtApp();
 
 const { pending } = defineProps({
   pending: {
@@ -305,9 +306,9 @@ const options = {
 const currentStep = ref(1);
 
 const stepsTitle = [
-  'Select Travel',
-  'Fill Customer Info',
-  'Select Payment Type',
+  $i18n.t('BOOKINGS.ADD_NEW_STEP_1'),
+  $i18n.t('BOOKINGS.ADD_NEW_STEP_2'),
+  $i18n.t('BOOKINGS.ADD_NEW_STEP_3'),
 ];
 
 const isDataValid = computed(() => ([
