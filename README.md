@@ -33,3 +33,8 @@ npm run test:watch
 ```
 npm run test
 ```
+
+## TODO:
+- Language switcher (add italian as example)
+- Theme switcher (dark is natively supported tho)
+- Fetch error handling (centralized, via toasts)

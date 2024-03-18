@@ -6,7 +6,7 @@ export default class {
 
   static store(data: NewBooking) {
     return $fetch('/api/bookings', {
-      method: 'PUT',
+      method: 'POST',
       body: data,
     });
   }
