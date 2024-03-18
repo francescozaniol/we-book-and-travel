@@ -14,14 +14,14 @@ export default class {
 
   static store(data: NewTravel) {
     return $fetch('/api/travels', {
-      method: 'PUT',
+      method: 'POST',
       body: data,
     });
   }
 
   static update(id: number, data: Travel) {
     return $fetch(`/api/travels/${id}`, {
-      method: 'POST',
+      method: 'PUT',
       body: data,
     });
   }
