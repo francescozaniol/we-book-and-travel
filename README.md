@@ -38,3 +38,4 @@ npm run test
 - Language switcher (add italian as example)
 - Theme switcher (dark is natively supported tho)
 - Fetch error handling (centralized, via toasts)
+- Validation (fully handled by BE, centralized on FE based on HTTP res code)
