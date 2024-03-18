@@ -1,0 +1,67 @@
+{
+  "GENERIC": {
+    "SEARCH": "Search",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "BACK": "Back",
+    "NEXT": "Next",
+    "CONFIRM_DELETE": "Are you sure you want to delete {item}?",
+    "DELETE_YES": "Yes, delete it",
+    "DELETE_NO": "No, keep it",
+    "NO_RESULTS": "No search results 😞",
+    "OPTIONAL": "Optional"
+  },
+  "TRAVELS": {
+    "TRAVELS": "Travels",
+    "ADD_NEW": "Add new Travel",
+    "EDIT_TRAVEL": "Edit Travel",
+    "RATING": "Rating",
+    "USER_RATING": "User rating",
+    "DEPARTURE": "Departure",
+    "DEPARTURE_DATE": "Departure date",
+    "RETURN": "Return",
+    "RETURN_DATE": "Return date",
+    "PRICE": "Price",
+    "PRICE_PERSON": "Price/Person",
+    "TITLE": "Title",
+    "DESCRIPTION": "Description",
+    "IMAGE_URL": "Image URL"
+  },
+  "BOOKINGS": {
+    "BOOKINGS": "Bookings",
+    "ADD_NEW": "Add new Booking",
+    "ID": "Id",
+    "CUSTOMER": "Customer",
+    "PAYMENT": "Payment",
+    "PAYMENT_TYPE": "Payment type",
+    "NOTES": "Notes",
+    "TRAVEL": "Travel",
+    "TRAVEL_DATES": "Dates: {from} to {to}",
+    "TRAVEL_PRICE": "Price: {n}$",
+    "TRAVEL_SEARCH": "Search for a travel",
+    "ADD_NEW_STEP_1": "Select Travel",
+    "ADD_NEW_STEP_2": "Fill Customer Info",
+    "ADD_NEW_STEP_3": "Select Payment Type"
+  },
+  "CUSTOMERS": {
+    "AGE_SHOW": "Age: {age}",
+    "GENDER_SHOW": "Gender: {gender}",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "PHONE": "Phone",
+    "AGE": "Age",
+    "GENDER": "Gender"
+  },
+  "GENDER": {
+    "FEMALE": "Female",
+    "MALE": "Male",
+    "PNTS": "Prefer not to say"
+  },
+  "PAYMENT": {
+    "CREDIT": "Credit",
+    "PAYPAL": "Paypal",
+    "REVOLUT": "Revolut"
+  }
+}

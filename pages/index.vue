@@ -9,7 +9,7 @@
           class="max-sm:w-full max-sm:justify-center"
           @click="editTravel(undefined)"
         >
-          Add new Travel
+          {{ $t('TRAVELS.ADD_NEW') }}
         </UButton>
       </div>
       <hr class="md:hidden my-6">
@@ -32,13 +32,13 @@
           variant="solid"
           type="submit"
         >
-          Search
+          {{ $t('GENERIC.SEARCH') }}
         </UButton>
       </form>
     </div>
 
     <div v-if="travels && !travels.length">
-      No search results 😞
+      {{ $t('GENERIC.NO_RESULTS') }}
     </div>
     <div
       v-else
@@ -89,7 +89,7 @@
       v-model="deleteModal.isOpen"
     >
       <UCard :ui="{ divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
-        <p>Are you sure you want to delete <strong>{{ deleteModal.travel.title }}</strong>?</p>
+        <p>{{ $t('GENERIC.CONFIRM_DELETE', { item: deleteModal.travel.title }) }}</p>
         <template #footer>
           <div class="flex justify-end space-x-2">
             <UButton
@@ -100,7 +100,7 @@
               :loading="deleteModal.pending"
               @click="deleteTravel"
             >
-              Yes, delete it
+              {{ $t('GENERIC.DELETE_YES') }}
             </UButton>
             <UButton
               color="black"
@@ -109,7 +109,7 @@
               icon="i-heroicons-x-circle"
               @click="deleteModal.isOpen = false"
             >
-              No, keep it
+              {{ $t('GENERIC.DELETE_NO') }}
             </UButton>
           </div>
         </template>
