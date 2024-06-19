@@ -79,9 +79,9 @@ const bookingsTableColumns = [
   },
 ];
 
-useAsyncData(() => Promise.all([
+useAsyncData(() => useGlobalLoader([
   $store.bookings.fetchBookings(),
-]));
+], 'blocking'));
 
 const formModal = reactive({
   isOpen: false,

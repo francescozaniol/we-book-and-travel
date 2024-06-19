@@ -5,6 +5,7 @@ export default defineNuxtPlugin(() => {
       store: {
         bookings: useBookingsStore(),
         travels: useTravelsStore(),
+        globalLoader: useGlobalLoaderStore(),
       },
     },
   };

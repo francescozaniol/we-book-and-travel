@@ -125,7 +125,7 @@ const { $store } = useNuxtApp();
 
 const travels = computed(() => $store.travels.travels);
 
-useAsyncData(() => Promise.all([
+useAsyncData(() => useGlobalLoader([
   $store.travels.fetchTravels(),
 ]), {
   lazy: true,
