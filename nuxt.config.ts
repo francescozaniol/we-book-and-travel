@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/ui',
     '@nuxtjs/i18n',
+    // '@nuxtjs/seo',
   ],
   postcss: {
     plugins: {
