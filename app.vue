@@ -13,6 +13,13 @@ useHead({
     class: 'h-full m-0',
   },
 });
+
+defineOgImage({
+  url: 'og-image.png',
+  // le dimensioni di default sarebbero width: 1200, height: 600, quindi crea una immagine di ste dimensioni; ma puoi customizzarla anche cosi':
+  // width: 800,
+  // height: 800, 
+});
 </script>
 
 <style>
