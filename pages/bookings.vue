@@ -11,6 +11,7 @@
         >
           {{ $t('BOOKINGS.ADD_NEW') }}
         </UButton>
+        <Icon name="carbon:bar" size="2em" />
       </div>
     </div>
 

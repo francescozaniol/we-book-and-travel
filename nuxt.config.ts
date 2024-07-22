@@ -27,12 +27,7 @@ export default defineNuxtConfig({
     enabled: false,
   },
 
-  modules: [
-    '@pinia/nuxt',
-    '@nuxt/ui',
-    '@nuxtjs/i18n',
-    '@nuxtjs/seo',
-  ],
+  modules: ['@pinia/nuxt', '@nuxt/ui', '@nuxtjs/i18n', '@nuxtjs/seo', '@nuxt/icon'],
 
   postcss: {
     plugins: {
