@@ -1,29 +1,46 @@
 export default defineNuxtConfig({
   // ssr: true,
+  site: {
+    url: 'https://example.com', // production URL
+    name: 'We Book & Travel',
+    description: 'This travels and bookings management system is truly impressive',
+  },
+
   app: {
     head: {
-      title: 'We Book & Travel',
+      link: [
+        { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png", },
+        { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png", },
+        { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png", },
+        { rel: "manifest", href: "/site.webmanifest", },
+        { rel: "mask-icon", href: "/safari-pinned-tab.svg", color: "#5bbad5", },
+      ],
       meta: [
-        {
-          name: 'description',
-          content: 'This travels and bookings management system is truly impressive',
-        },
+        { name: "msapplication-TileColor", content: "#da532c", },
+        { name: "theme-color", content: "#ffffff", },
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
+
+  seoExperiments: {
+    enabled: false,
+  },
+
   modules: [
     '@pinia/nuxt',
     '@nuxt/ui',
     '@nuxtjs/i18n',
-    // '@nuxtjs/seo',
+    '@nuxtjs/seo',
   ],
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   i18n: {
     detectBrowserLanguage: {
       fallbackLocale: 'en',
@@ -39,4 +56,6 @@ export default defineNuxtConfig({
     lazy: false,
     langDir: 'lang',
   },
+
+  compatibilityDate: '2024-07-22',
 });
