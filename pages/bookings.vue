@@ -52,7 +52,7 @@
 
 <script lang="ts" setup>
 import { BookingForm } from '#components';
-const { $store, $i18n } = useNuxtApp();
+const { $i18n } = useNuxtApp();
 
 const bookings = computed(() => $store.bookings.bookings);
 

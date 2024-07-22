@@ -74,7 +74,6 @@
         </div>
       </template>
     </div>
-
     <UModal v-model="formModal.isOpen">
       <TravelForm
         :travel="formModal.travel"
@@ -120,9 +119,6 @@
 
 <script lang="ts" setup>
 import { TravelForm } from '#components';
-
-const { $store } = useNuxtApp();
-
 const travels = computed(() => $store.travels.travels);
 
 useAsyncData(() => useGlobalLoader([
