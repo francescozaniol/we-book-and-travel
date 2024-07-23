@@ -16,6 +16,7 @@
     "vue": "latest"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.2",
     "@nuxt/ui": "^2.14.2",
     "@pinia/nuxt": "^0.5.1",
     "@vueuse/core": "^10.11.0",

@@ -30,7 +30,8 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
     '@nuxt/icon',
-    "nuxt-security",
+    'nuxt-security',
+    '@formkit/auto-animate', // non usato, ho solo provato
   ],
 
   seoExperiments: {
