@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@vueuse/nuxt',
     '@pinia/nuxt',
     '@nuxt/ui',
     '@nuxtjs/i18n',
