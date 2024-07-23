@@ -69,5 +69,5 @@ export default defineNuxtConfig({
     langDir: 'lang',
   },
 
-  compatibilityDate: '2024-07-22',
+  compatibilityDate: '2024-07-22', // me lo ha aggiunto nuxt di default ... boh!
 });
