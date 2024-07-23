@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'nuxt-security',
     '@formkit/auto-animate', // non usato, ho solo provato
+    '@nuxt/fonts',
   ],
 
   seoExperiments: {

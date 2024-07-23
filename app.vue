@@ -34,6 +34,10 @@ defineOgImage({
   }
 }
 
+html {
+  font-family: Roboto, sans-serif; /* @nuxt/fonts fa auto download del font x i cassi suoi */
+}
+
 #__nuxt {
   height: 100%;
 }

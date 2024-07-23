@@ -3,6 +3,7 @@ node_modules
 .nuxt
 .nitro
 .output
+.data
 .cache
 .env
 dist
