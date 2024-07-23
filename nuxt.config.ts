@@ -23,11 +23,24 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
+  modules: [
+    '@pinia/nuxt',
+    '@nuxt/ui',
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo',
+    '@nuxt/icon',
+    "nuxt-security",
+  ],
+
   seoExperiments: {
     enabled: false,
   },
 
-  modules: ['@pinia/nuxt', '@nuxt/ui', '@nuxtjs/i18n', '@nuxtjs/seo', '@nuxt/icon'],
+  security: {
+    headers: {
+      crossOriginEmbedderPolicy: process.env.NODE_ENV === 'development' ? 'unsafe-none' : 'require-corp',
+    },
+  },
 
   postcss: {
     plugins: {

@@ -1,6 +1,14 @@
 module.exports = {
   root: true,
-  extends: ["@nuxt/eslint-config"],
+  plugins: [
+    'anti-trojan-source',
+    'security-node',
+  ],
+  extends: [
+    '@nuxt/eslint-config',
+    'plugin:anti-trojan-source/recommended',
+    'plugin:security-node/recommended',
+  ],
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
     'semi': ['error', 'always'],
