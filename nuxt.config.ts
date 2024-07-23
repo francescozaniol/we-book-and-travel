@@ -33,6 +33,7 @@ export default defineNuxtConfig({
     'nuxt-security',
     '@formkit/auto-animate', // non usato, ho solo provato
     '@nuxt/fonts',
+    '@morev/vue-transitions/nuxt', // non usato, ho solo provato
   ],
 
   seoExperiments: {
