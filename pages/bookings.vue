@@ -51,7 +51,6 @@
 </template>
 
 <script lang="ts" setup>
-import { BookingForm } from '#components';
 const { $i18n } = useNuxtApp();
 
 const bookings = computed(() => $store.bookings.bookings);
