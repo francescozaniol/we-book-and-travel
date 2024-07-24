@@ -6,7 +6,7 @@ export default defineAppConfig({
     primary: 'brand', // nota: brand e neutral sono i colori "funzionali" definiti dentro tailwind.config.js
     grey: 'neutral',
 
-    button: {
+    button: { // override dello stile di default del bottone
       default: {
         size: 'xl',
         color: 'secondary',
