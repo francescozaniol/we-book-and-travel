@@ -3,7 +3,6 @@
     <div class="flex items-center align-middle py-6 max-sm:block">
       <div>
         <UButton
-          color="red"
           icon="i-heroicons-plus-circle"
           size="xl"
           class="max-sm:w-full max-sm:justify-center"

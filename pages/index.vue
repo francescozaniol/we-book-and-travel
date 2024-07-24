@@ -1,11 +1,11 @@
 <template>
   <div class="px-5 pb-20 container max-sm:max-w-[400px] mx-auto">
     <div class="flex items-center align-middle py-6 max-sm:block">
+      <div class="bg-primary" style="width: 20px;height: 20px;"></div>
+      <div class="bg-secondary" style="width: 20px;height: 20px;"></div>
       <div>
         <UButton
-          color="red"
           icon="i-heroicons-plus-circle"
-          size="xl"
           class="max-sm:w-full max-sm:justify-center"
           @click="editTravel(undefined)"
         >
@@ -28,7 +28,7 @@
           @blur="searchInputHasFocus = false"
         />
         <UButton
-          color="black"
+          color="secondary"
           variant="solid"
           type="submit"
         >

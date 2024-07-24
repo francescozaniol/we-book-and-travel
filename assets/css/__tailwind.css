@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* nota: uso questo file SOLO se ho bisogno di aggiungere CSS VARS che devo usare dentro tailwind.config.js, altrimenti non serve */
+/* x usarlo rimuovi "__", poi nuxt lo auto-load da solo */
+/* se servono css vars globali non shareate con tailwind, buttale dentro app.vue */
+@layer base {
+  :root {
+    /* se usi nuxt-ui, e' lui stesso a fornirti le variabili, quindi qui dentro aggiungi SOLO variabili aggiuntive che ti servono a te */
+    --bp-sm: 576px;
+    --bp-md: 960px;
+    --bp-lg: 1440px;
+  }
+}
