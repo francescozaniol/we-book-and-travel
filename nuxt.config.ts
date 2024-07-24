@@ -29,18 +29,18 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/i18n',
     '@nuxtjs/seo',
-    '@nuxt/icon',
+    '@nuxt/icon', // non serve installarlo in realta', e' usato da nuxt-ui di default
     'nuxt-security',
     '@formkit/auto-animate', // non usato, ho solo provato
-    '@nuxt/fonts',
+    '@nuxt/fonts', // questo aspetta ad installarlo, vedi se nuxt-ui da' una roba simile di default
     '@morev/vue-transitions/nuxt', // non usato, ho solo provato
   ],
 
-  seoExperiments: {
+  seoExperiments: { // questo modulo e' na merda; uso invece "defineOgImage", vedi app.vue
     enabled: false,
   },
 
-  security: {
+  security: { // questo blocco e' consigliato di essere aggiunto di default dalla guida
     headers: {
       crossOriginEmbedderPolicy: process.env.NODE_ENV === 'development' ? 'unsafe-none' : 'require-corp',
     },
