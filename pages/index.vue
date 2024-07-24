@@ -11,6 +11,11 @@
         >
           {{ $t('TRAVELS.ADD_NEW') }}
         </UButton>
+        <UButton
+          @click="tryOpenModalProgrammatically"
+        >
+          tryOpenModalProgrammatically
+        </UButton>
       </div>
       <hr class="md:hidden my-6">
       <form
@@ -118,7 +123,7 @@
 </template>
 
 <script lang="ts" setup>
-import { TravelForm } from '#components';
+import { TravelFormModal } from '#components';
 const travels = computed(() => $store.travels.travels);
 
 useAsyncData(() => useGlobalLoader([
@@ -182,6 +187,16 @@ async function saveTravel (travel: Travel | NewTravel) {
   } finally {
     formModal.pending = false;
   }
+}
+
+function tryOpenModalProgrammatically () {
+  $store.ui.modal.open(TravelFormModal, {
+    travel: undefined,
+    onSubmit: async (travel: Travel) => {
+      await saveTravel(travel); // nota: questo dovrebbe essere spostato del tutto dentro la modale,e quindi onSubmit dovrebbe essere rimosso del tutto
+      $store.ui.modal.close();
+    },
+  });
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    isLoading: {{ $store.globalLoader.isLoading }}
-    type: {{ $store.globalLoader.type }}
+    isLoading: {{ $store.ui.globalLoader.isLoading }}
+    type: {{ $store.ui.globalLoader.type }}
   </div>
 </template>
