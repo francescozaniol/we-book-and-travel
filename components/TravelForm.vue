@@ -48,6 +48,7 @@
             class="w-full"
             name="editedTravel.rating"
             required
+            option-attribute="name"
             :options="[
               { 'value': 0.5, name: '0,5' },
               { 'value': 1, name: '1' },
